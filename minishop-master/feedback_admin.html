@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nike Admin</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="assets/images/logos/favicon.png"
+    />
+    <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+  </head>
+
+  <body>
+    <!--  Body Wrapper -->
+    <div
+      class="page-wrapper"
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin6"
+      data-sidebartype="full"
+      data-sidebar-position="fixed"
+      data-header-position="fixed"
+    >
+      <!-- Sidebar Start -->
+      <aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div>
+          <div
+            class="brand-logo d-flex align-items-center justify-content-between"
+          >
+            <a href="index_admin.html" class="text-nowrap logo-img" style="text-align: center; padding: 20px 0px;">
+              <img src="images/logo-nike.png" width="50%" alt=""/>
+            </a>
+            <div
+              class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"
+              id="sidebarCollapse"
+            >
+              <i class="ti ti-x fs-8"></i>
+            </div>
+          </div>
+          <!-- Sidebar navigation-->
+          <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+            <ul id="sidebarnav">
+              <li class="nav-small-cap">
+                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                <span class="hide-menu">Quản lý cửa hàng</span>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="index_admin.html"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Sản phẩm</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a class="sidebar-link" href="order_admin.html" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-truck-delivery"></i>
+                  </span>
+                  <span class="hide-menu">Đơn hàng</span>
+                </a>
+              </li>
+              </ul>
+              <ul id="sidebarnav">
+                <li class="nav-small-cap">
+                  <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                  <span class="hide-menu">Quản lý thông tin</span>
+                </li>
+                <li class="sidebar-item">
+                  <a
+                    class="sidebar-link"
+                    href="blog_admin.html"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      <i class="ti ti-message-dots"></i>
+                    </span>
+                    <span class="hide-menu">BLOG</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="feedback_admin.html" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-message-report"></i>
+                    </span>
+                    <span class="hide-menu">Đánh giá sản phẩm</span>
+                  </a>
+                </li>
+                </ul>
+                <ul id="sidebarnav">
+                  <li class="nav-small-cap">
+                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                    <span class="hide-menu">Quản lý quyền truy cập</span>
+                  </li>
+                  <li class="sidebar-item">
+                    <a
+                      class="sidebar-link"
+                      href="account_admin.html"
+                      aria-expanded="false"
+                    >
+                      <span>
+                        <i class="ti ti-users"></i>
+                      </span>
+                      <span class="hide-menu">Tài khoản</span>
+                    </a>
+                  </li>
+                  </ul>
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+      </aside>
+      <!--  Sidebar End -->
+      <!--  Main wrapper -->
+      <div class="body-wrapper">
+        <!--  Header Start -->
+        <header class="app-header">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <ul class="navbar-nav">
+              <li class="nav-item d-block d-xl-none">
+                <a
+                  class="nav-link sidebartoggler nav-icon-hover"
+                  id="headerCollapse"
+                  href="javascript:void(0)"
+                >
+                  <i class="ti ti-menu-2"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                  <i class="ti ti-bell-ringing"></i>
+                  <div class="notification bg-primary rounded-circle"></div>
+                </a>
+              </li>
+            </ul>
+            <div
+              class="navbar-collapse justify-content-end px-0"
+              id="navbarNav">
+              <ul
+                class="navbar-nav flex-row ms-auto align-items-center justify-content-end"
+              >
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link nav-icon-hover"
+                    href="javascript:void(0)"
+                    id="drop2"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="assets/images/profile/user-1.jpg"
+                      alt=""
+                      width="35"
+                      height="35"
+                      class="rounded-circle"
+                    />
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
+                    aria-labelledby="drop2"
+                  >
+                    <div class="message-body">
+                      <a
+                        href="javascript:void(0)"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                      >
+                        <i class="ti ti-mail fs-6"></i>
+                        <p class="mb-0 fs-3">Tài khoản của tôi</p>
+                      </a>
+                      <a
+                        href="index.html"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                      >
+                        <i class="ti ti-home fs-6"></i>
+                        <p class="mb-0 fs-3">Đi đến trang chủ</p>
+                      </a>
+                      <a
+                        href="./authentication-login.html"
+                        class="btn btn-outline-primary mx-3 mt-2 d-block"
+                        >Đăng xuất</a
+                      >
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+
+        <!--  Header End -->
+
+        <div class="container-fluid">
+            <div class="row">
+                <div class="tab-stars">
+                        <a href="#" class="tab-star" onclick="openFeedbacks(event, 'tat-ca')"><span>Tất cả</span><span>(4)</span></a>
+                        <a href="#" class="tab-star" onclick="openFeedbacks(event, '1-sao')"><span>1 <i class="fa-solid fa-star"></i></span> <span> (1)</span></a>
+                        <a href="#" class="tab-star" onclick="openFeedbacks(event, '2-sao')"><span>2 <i class="fa-solid fa-star"></i></span> <span> (3)</span></a>
+                        <a href="#" class="tab-star" onclick="openFeedbacks(event, '3-sao')"><span>3 <i class="fa-solid fa-star"></i></span> <span> (5)</span></a>
+                        <a href="#" class="tab-star" onclick="openFeedbacks(event, '4-sao')"><span>4 <i class="fa-solid fa-star"></i></span> <span> (7)</span></a>
+                        <a href="#" class="tab-star" onclick="openFeedbacks(event, '5-sao')"><span>5 <i class="fa-solid fa-star"></i></span> <span> (10)</span></a>
+                </div>
+            </div>
+            <div class="row">
+
+                <!--tất cả-->
+                <div class="table-fbk" id="tat-ca" style="display: block;">
+                    <table>
+                        <thead>
+                            <th class="col-cus">Khách hàng</th>
+                            <th class="col-prd">Sản phẩm</th>
+                            <th class="col-fb">Đánh giá</th>
+                            <th class="col-content">Nội dung</th>
+                            <th class="col-time">Thời gian</th>
+                            <th class="col-status">Trạng thái</th>
+                            <th class="col-active"></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-cus">Nguyễn Hoàng Thy</td>
+                                <td class="col-prd">
+                                    <img src="images/product42.png">
+                                    <p>Tên sản phẩm nike 1361 146524</p>
+                                </td>
+                                <td class="col-fbk">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="col-content">Chất lượng sản phẩm tuyệt vời. Giao hàng nhanh chóng. Shop tư vấn nhiệt tình. Xứng đáng 5 sao. Sẽ ủng hộ lần tới. Yêu shop <3</td>
+                                <td class="col-time">15/12/2023 00:00:00</td>
+                                <td class="col-status"><a href="#" class="status-fb an">Ẩn</a></td>
+                                <td class="col-active">
+                                    <a href="#"><i class="fa-solid fa-trash fa-xl"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-cus">Nguyễn Hoàng Thy</td>
+                                <td class="col-prd">
+                                    <img src="images/product42.png">
+                                    <p>Tên sản phẩm nike 1361 146524</p>
+                                </td>
+                                <td class="col-fbk">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="col-content">Chất lượng sản phẩm tuyệt vời. Giao hàng nhanh chóng. Shop tư vấn nhiệt tình. Xứng đáng 5 sao. Sẽ ủng hộ lần tới. Yêu shop <3</td>
+                                <td class="col-time">15/12/2023 00:00:00</td>
+                                <td class="col-status"><a href="#" class="status-fb hien-thi">Hiển thị</a></td>
+                                <td class="col-active">
+                                    <a href="#"><i class="fa-solid fa-trash fa-xl"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-cus">Nguyễn Hoàng Thy</td>
+                                <td class="col-prd">
+                                    <img src="images/product42.png">
+                                    <p>Tên sản phẩm nike 1361 146524</p>
+                                </td>
+                                <td class="col-fbk">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="col-content">Chất lượng sản phẩm tuyệt vời. Giao hàng nhanh chóng. Shop tư vấn nhiệt tình. Xứng đáng 5 sao. Sẽ ủng hộ lần tới. Yêu shop <3</td>
+                                <td class="col-time">15/12/2023 00:00:00</td>
+                                <td class="col-status"><a href="#" class="status-fb hien-thi">Hiển thị</a></td>
+                                <td class="col-active">
+                                    <a href="#"><i class="fa-solid fa-trash fa-xl"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 1 Sao-->
+                <div class="table-fbk" id="1-sao">
+                    <table>
+                        <thead>
+                            <th class="col-cus">Khách hàng</th>
+                            <th class="col-prd">Sản phẩm</th>
+                            <th class="col-fb">Đánh giá</th>
+                            <th class="col-content">Nội dung</th>
+                            <th class="col-time">Thời gian</th>
+                            <th class="col-status">Trạng thái</th>
+                            <th class="col-active"></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-cus">Nguyễn Hoàng Thy</td>
+                                <td class="col-prd">
+                                    <img src="images/product42.png">
+                                    <p>Tên sản phẩm nike 1361 146524</p>
+                                </td>
+                                <td class="col-fbk">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="col-content">Chất lượng sản phẩm tuyệt vời. Giao hàng nhanh chóng. Shop tư vấn nhiệt tình. Xứng đáng 5 sao. Sẽ ủng hộ lần tới. Yêu shop <3</td>
+                                <td class="col-time">15/12/2023 00:00:00</td>
+                                <td class="col-status"><a href="#" class="status-fb an">Ẩn</a></td>
+                                <td class="col-active">
+                                    <a href="#"><i class="fa-solid fa-trash fa-xl"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-cus">Nguyễn Hoàng Thy</td>
+                                <td class="col-prd">
+                                    <img src="images/product42.png">
+                                    <p>Tên sản phẩm nike 1361 146524</p>
+                                </td>
+                                <td class="col-fbk">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="col-content">Chất lượng sản phẩm tuyệt vời. Giao hàng nhanh chóng. Shop tư vấn nhiệt tình. Xứng đáng 5 sao. Sẽ ủng hộ lần tới. Yêu shop <3</td>
+                                <td class="col-time">15/12/2023 00:00:00</td>
+                                <td class="col-status"><a href="#" class="status-fb hien-thi">Hiển thị</a></td>
+                                <td class="col-active">
+                                    <a href="#"><i class="fa-solid fa-trash fa-xl"></i></a>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td class="col-cus">Nguyễn Hoàng Thy</td>
+                                <td class="col-prd">
+                                    <img src="images/product42.png">
+                                    <p>Tên sản phẩm nike 1361 146524</p>
+                                </td>
+                                <td class="col-fbk">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="col-content">Chất lượng sản phẩm tuyệt vời. Giao hàng nhanh chóng. Shop tư vấn nhiệt tình. Xứng đáng 5 sao. Sẽ ủng hộ lần tới. Yêu shop <3</td>
+                                <td class="col-time">15/12/2023 00:00:00</td>
+                                <td class="col-status"><a href="#" class="status-fb hien-thi">Hiển thị</a></td>
+                                <td class="col-active">
+                                    <a href="#"><i class="fa-solid fa-trash fa-xl"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 2 Sao-->
+                <div class="table-fbk" id="2-sao">
+                    <table>
+                        <thead>
+                            <th class="col-cus">Khách hàng</th>
+                            <th class="col-prd">Sản phẩm</th>
+                            <th class="col-fb">Đánh giá</th>
+                            <th class="col-content">Nội dung</th>
+                            <th class="col-time">Thời gian</th>
+                            <th class="col-status">Trạng thái</th>
+                            <th class="col-active"></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-cus">Nguyễn Hoàng Thy</td>
+                                <td class="col-prd">
+                                    <img src="images/product42.png">
+                                    <p>Tên sản phẩm nike 1361 146524</p>
+                                </td>
+                                <td class="col-fbk">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="col-content">Chất lượng sản phẩm tuyệt vời. Giao hàng nhanh chóng. Shop tư vấn nhiệt tình. Xứng đáng 5 sao. Sẽ ủng hộ lần tới. Yêu shop <3</td>
+                                <td class="col-time">15/12/2023 00:00:00</td>
+                                <td class="col-status"><a href="#" class="status-fb an">Ẩn</a></td>
+                                <td class="col-active">
+                                    <a href="#"><i class="fa-solid fa-trash fa-xl"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 3 Sao-->
+                <div class="table-fbk" id="3-sao">
+                    <table>
+                        <thead>
+                            <th class="col-cus">Khách hàng</th>
+                            <th class="col-prd">Sản phẩm</th>
+                            <th class="col-fb">Đánh giá</th>
+                            <th class="col-content">Nội dung</th>
+                            <th class="col-time">Thời gian</th>
+                            <th class="col-status">Trạng thái</th>
+                            <th class="col-active"></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-cus">Nguyễn Hoàng Thy</td>
+                                <td class="col-prd">
+                                    <img src="images/product42.png">
+                                    <p>Tên sản phẩm nike 1361 146524</p>
+                                </td>
+                                <td class="col-fbk">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="col-content">Chất lượng sản phẩm tuyệt vời. Giao hàng nhanh chóng. Shop tư vấn nhiệt tình. Xứng đáng 5 sao. Sẽ ủng hộ lần tới. Yêu shop <3</td>
+                                <td class="col-time">15/12/2023 00:00:00</td>
+                                <td class="col-status"><a href="#" class="status-fb an">Ẩn</a></td>
+                                <td class="col-active">
+                                    <a href="#"><i class="fa-solid fa-trash fa-xl"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 4 Sao-->
+                <div class="table-fbk" id="4-sao">
+                    <table>
+                        <thead>
+                            <th class="col-cus">Khách hàng</th>
+                            <th class="col-prd">Sản phẩm</th>
+                            <th class="col-fb">Đánh giá</th>
+                            <th class="col-content">Nội dung</th>
+                            <th class="col-time">Thời gian</th>
+                            <th class="col-status">Trạng thái</th>
+                            <th class="col-active"></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-cus">Nguyễn Hoàng Thy</td>
+                                <td class="col-prd">
+                                    <img src="images/product42.png">
+                                    <p>Tên sản phẩm nike 1361 146524</p>
+                                </td>
+                                <td class="col-fbk">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="col-content">Chất lượng sản phẩm tuyệt vời. Giao hàng nhanh chóng. Shop tư vấn nhiệt tình. Xứng đáng 5 sao. Sẽ ủng hộ lần tới. Yêu shop <3</td>
+                                <td class="col-time">15/12/2023 00:00:00</td>
+                                <td class="col-status"><a href="#" class="status-fb an">Ẩn</a></td>
+                                <td class="col-active">
+                                    <a href="#"><i class="fa-solid fa-trash fa-xl"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+
+                <!-- 5 Sao-->
+                <div class="table-fbk" id="5-sao">
+                    <table>
+                        <thead>
+                            <th class="col-cus">Khách hàng</th>
+                            <th class="col-prd">Sản phẩm</th>
+                            <th class="col-fb">Đánh giá</th>
+                            <th class="col-content">Nội dung</th>
+                            <th class="col-time">Thời gian</th>
+                            <th class="col-status">Trạng thái</th>
+                            <th class="col-active"></th>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td class="col-cus">Nguyễn Hoàng Thy</td>
+                                <td class="col-prd">
+                                    <img src="images/product42.png">
+                                    <p>Tên sản phẩm nike 1361 146524</p>
+                                </td>
+                                <td class="col-fbk">
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                    <i class="fa-solid fa-star"></i>
+                                </td>
+                                <td class="col-content">Chất lượng sản phẩm tuyệt vời. Giao hàng nhanh chóng. Shop tư vấn nhiệt tình. Xứng đáng 5 sao. Sẽ ủng hộ lần tới. Yêu shop <3</td>
+                                <td class="col-time">15/12/2023 00:00:00</td>
+                                <td class="col-status"><a href="#" class="status-fb an">Ẩn</a></td>
+                                <td class="col-active">
+                                    <a href="#"><i class="fa-solid fa-trash fa-xl"></i></a>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+      </div>
+    </div>
+    <script>
+        // Lấy tất cả các thẻ <a> có class "atatus-fb"
+        const links = document.querySelectorAll('.status-fb');
+
+        // Thêm sự kiện click cho từng thẻ <a>
+        links.forEach(function(link) {
+            link.addEventListener('click', function(event) {
+                event.preventDefault(); // Ngăn không cho trang reload
+                if (link.textContent === 'Hiển thị') {
+                    link.textContent = 'Ẩn';
+                    link.classList.remove('hien-thi')
+                    link.classList.add('an')
+                } else {
+                    link.textContent = 'Hiển thị';
+                    link.classList.remove('an')
+                    link.classList.add('hien-thi')
+                }
+            });
+        });
+
+        function openFeedbacks(evt, fbType){
+            var i, tabcontent, tablinks;
+            tabcontent = document.getElementsByClassName("table-fbk");
+            for(i = 0; i < tabcontent.length; i++){
+                tabcontent[i].style.display = "none";
+            }
+            tablinks = document.getElementsByClassName('tab-star');
+            for(i = 0; i < tablinks.length; i++){
+                tablinks[i].className = tablinks[i].className.replace(" active", "");
+            }
+            document.getElementById(fbType).style.display = "block";
+            evt.currentTarget.className += " active";
+        }
+    </script>
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/sidebarmenu.js"></script>
+    <script src="assets/js/app.min.js"></script>
+    <script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="assets/libs/simplebar/dist/simplebar.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+  </body>
+</html>
