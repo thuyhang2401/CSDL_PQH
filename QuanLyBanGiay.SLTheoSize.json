@@ -1,0 +1,172 @@
+[
+  {
+    "_id": 1,
+    "MaSanPham": 1,
+    "Sizes": {
+      "size35": 5,
+      "size36": 5,
+      "size37": 5,
+      "size38": 5,
+      "size39": 5,
+      "size40": 5,
+      "size41": 5,
+      "size42": 5,
+      "size43": 5,
+      "size44": 5,
+      "size45": 0
+    }
+  },
+  {
+    "_id": 2,
+    "MaSanPham": 2,
+    "Sizes": {
+      "size35": 10,
+      "size36": 5,
+      "size37": 0,
+      "size38": 0,
+      "size39": 3,
+      "size40": 2,
+      "size41": 10,
+      "size42": 0,
+      "size43": 0,
+      "size44": 0,
+      "size45": 0
+    }
+  },
+  {
+    "_id": 3,
+    "MaSanPham": 3,
+    "Sizes": {
+      "size35": 10,
+      "size36": 10,
+      "size37": 10,
+      "size38": 10,
+      "size39": 10,
+      "size40": 10,
+      "size41": 10,
+      "size42": 10,
+      "size43": 10,
+      "size44": 10,
+      "size45": 0
+    }
+  },
+  {
+    "_id": 4,
+    "MaSanPham": 4,
+    "Sizes": {
+      "size35": 4,
+      "size36": 0,
+      "size37": 4,
+      "size38": 6,
+      "size39": 3,
+      "size40": 3,
+      "size41": 3,
+      "size42": 3,
+      "size43": 0,
+      "size44": 0,
+      "size45": 0
+    }
+  },
+  {
+    "_id": 5,
+    "MaSanPham": 5,
+    "Sizes": {
+      "size35": 5,
+      "size36": 5,
+      "size37": 5,
+      "size38": 5,
+      "size39": 5,
+      "size40": 5,
+      "size41": 5,
+      "size42": 5,
+      "size43": 0,
+      "size44": 0,
+      "size45": 0
+    }
+  },
+  {
+    "_id": 6,
+    "MaSanPham": 6,
+    "Sizes": {
+      "size35": 10,
+      "size36": 0,
+      "size37": 0,
+      "size38": 0,
+      "size39": 3,
+      "size40": 2,
+      "size41": 10,
+      "size42": 0,
+      "size43": 0,
+      "size44": 0,
+      "size45": 0
+    }
+  },
+  {
+    "_id": 7,
+    "MaSanPham": 7,
+    "Sizes": {
+      "size35": 1,
+      "size36": 1,
+      "size37": 1,
+      "size38": 1,
+      "size39": 2,
+      "size40": 4,
+      "size41": 5,
+      "size42": 0,
+      "size43": 0,
+      "size44": 0,
+      "size45": 0
+    }
+  },
+  {
+    "_id": 8,
+    "MaSanPham": 8,
+    "Sizes": {
+      "size35": 4,
+      "size36": 10,
+      "size37": 4,
+      "size38": 2,
+      "size39": 3,
+      "size40": 3,
+      "size41": 3,
+      "size42": 1,
+      "size43": 10,
+      "size44": 10,
+      "size45": 10
+    }
+  },
+  {
+    "_id": 9,
+    "MaSanPham": 9,
+    "Sizes": {
+      "size35": 1,
+      "size36": 1,
+      "size37": 1,
+      "size38": 1,
+      "size39": 1,
+      "size40": 5,
+      "size41": 1,
+      "size42": 1,
+      "size43": 1,
+      "size44": 1,
+      "size45": 1
+    }
+  },
+  {
+    "_id": 10,
+    "MaSanPham": 10,
+    "Sizes": {
+      "size35": 10,
+      "size36": 5,
+      "size37": 3,
+      "size38": 2,
+      "size39": 3,
+      "size40": 2,
+      "size41": 10,
+      "size42": 5,
+      "size43": 0,
+      "size44": 0,
+      "size45": 0
+    }
+  }
+]

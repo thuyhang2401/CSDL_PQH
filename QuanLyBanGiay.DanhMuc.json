@@ -1,0 +1,22 @@
+[
+  {
+    "_id": 1,
+    "TenDanhMuc": "Giày thể thao"
+  },
+  {
+    "_id": 2,
+    "TenDanhMuc": "Giày nữ"
+  },
+  {
+    "_id": 3,
+    "TenDanhMuc": "Giày thiếu nhi"
+  },
+  {
+    "_id": 4,
+    "TenDanhMuc": "Giày nam"
+  },
+  {
+    "_id": 5,
+    "TenDanhMuc": "Sandal"
+  }
+]

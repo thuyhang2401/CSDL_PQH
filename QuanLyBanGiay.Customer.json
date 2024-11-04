@@ -1,0 +1,42 @@
+[
+  {
+    "_id": 1,
+    "name": "Customer 1",
+    "email": "customer1@gmail.com",
+    "address": "Da Nang",
+    "phoneNumber": "0983736373",
+    "accountId": 1
+  },
+  {
+    "_id": 2,
+    "name": "Customer 2",
+    "email": "customer2@gmail.com",
+    "address": "Da Nang",
+    "phoneNumber": "0983336373",
+    "accountId": 2
+  },
+  {
+    "_id": 3,
+    "name": "Customer 3",
+    "email": "customer3@gmail.com",
+    "address": "Da Nang",
+    "phoneNumber": "0983746373",
+    "accountId": 5
+  },
+  {
+    "_id": 4,
+    "name": "Customer 4",
+    "email": "customer4@gmail.com",
+    "address": "Da Nang",
+    "phoneNumber": "0983536373",
+    "accountId": 3
+  },
+  {
+    "_id": 5,
+    "name": "Customer 5",
+    "email": "customer5@gmail.com",
+    "address": "Da Nang",
+    "phoneNumber": "0983736373",
+    "accountId": 4
+  }
+]
