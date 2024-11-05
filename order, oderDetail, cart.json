@@ -1,0 +1,49 @@
+db.createCollection("orders", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["orderId", "customerId", "orderDate", "paymentDate", "totalMoney", "orderStatus"],
+         properties: {
+            orderId: { bsonType: "int", description: "Mã đơn hàng" },
+            customerId: { bsonType: "int", description: "Mã khách hàng liên kết" },
+            orderDate: { bsonType: "date", description: "Ngày đặt hàng" },
+            paymentDate: { bsonType: "date", description: "Ngày thanh toán" },
+            totalMoney: { bsonType: "int", description: "Tổng tiền đơn hàng" },
+            orderStatus: { bsonType: "string", description: "Trạng thái đơn hàng" }
+         }
+      }
+   }
+})
+
+db.createCollection("orderdetails", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["orderId", "productId", "productAmount", "price"],
+         properties: {
+            orderId: { bsonType: "int", description: "Mã đơn hàng liên kết" },
+            productId: { bsonType: "int", description: "Mã sản phẩm" },
+            productAmount: { bsonType: "int", description: "Số lượng sản phẩm" },
+            price: { bsonType: "int", description: "Đơn giá sản phẩm" }
+         }
+      }
+   }
+})
+
+db.createCollection("carts", {
+   validator: {
+      $jsonSchema: {
+         bsonType: "object",
+         required: ["accountId", "productId", "purchaseQuantity"],
+         properties: {
+            accountId: { bsonType: "int", description: "Mã tài khoản" },
+            productId: { bsonType: "int", description: "Mã sản phẩm" },
+            purchaseQuantity: { bsonType: "int", description: "Số lượng mua" }
+         }
+      }
+   }
+})
+
+
+
+
