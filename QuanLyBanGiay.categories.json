@@ -1,0 +1,22 @@
+[
+  {
+    "_id": 1,
+    "categoryName": "Giày thể thao"
+  },
+  {
+    "_id": 2,
+    "categoryName": "Giày nữ"
+  },
+  {
+    "_id": 3,
+    "categoryName": "Giày thiếu nhi"
+  },
+  {
+    "_id": 4,
+    "categoryName": "Giày nam"
+  },
+  {
+    "_id": 5,
+    "categoryName": "Sandal"
+  }
+]

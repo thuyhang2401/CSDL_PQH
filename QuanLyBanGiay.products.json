@@ -1,0 +1,122 @@
+[
+  {
+    "_id": 1,
+    "productName": "Nike Air Force 1",
+    "description": "Đôi giày thể thao nổi tiếng của Nike",
+    "price": 1500000,
+    "quantity": 50,
+    "image": "product22.png",
+    "categoryId": 1,
+    "color": "Trắng",
+    "storageInstruction": "Bảo quản nơi thoáng mát",
+    "tips": "Mẹo sử dụng"
+  },
+  {
+    "_id": 2,
+    "productName": "Nike Air Max 270",
+    "description": "Giày thể thao chạy bộ với công nghệ Air Max",
+    "price": 2000000,
+    "quantity": 30,
+    "image": "product84.png",
+    "categoryId": 1,
+    "color": "Trắng",
+    "storageInstruction": "Bảo quản nơi thoáng mát",
+    "tips": "Mẹo sử dụng"
+  },
+  {
+    "_id": 3,
+    "productName": "Nike Ebor titan",
+    "description": "Giày thể thao mới phủ bạc titan",
+    "price": 500000,
+    "quantity": 100,
+    "image": "product85.png",
+    "categoryId": 4,
+    "color": "Trắng",
+    "storageInstruction": "Bảo quản nơi thoáng mát",
+    "tips": "Mẹo sử dụng"
+  },
+  {
+    "_id": 4,
+    "productName": "Nike Ebor titanium",
+    "description": "Đôi giày không ai giám mang",
+    "price": 800000,
+    "quantity": 20,
+    "image": "product62.png",
+    "categoryId": 2,
+    "color": "Trắng",
+    "storageInstruction": "Bảo quản nơi thoáng mát",
+    "tips": "Mẹo sử dụng"
+  },
+  {
+    "_id": 5,
+    "productName": "Nike React Infinity Run",
+    "description": "Giày chạy bộ với thiết kế bảo vệ tối đa",
+    "price": 2200000,
+    "quantity": 40,
+    "image": "product72.png",
+    "categoryId": 1,
+    "color": "Đen",
+    "storageInstruction": "Bảo quản nơi thoáng mát",
+    "tips": "Mẹo sử dụng"
+  },
+  {
+    "_id": 6,
+    "productName": "Nike Zoom Fly",
+    "description": "Giày chạy nhanh với công nghệ đệm mới",
+    "price": 2500000,
+    "quantity": 25,
+    "image": "product12.png",
+    "categoryId": 1,
+    "color": "Xanh",
+    "storageInstruction": "Bảo quản nơi thoáng mát",
+    "tips": "Mẹo sử dụng"
+  },
+  {
+    "_id": 7,
+    "productName": "Nike Air Huarache",
+    "description": "Giày thể thao cổ điển với thiết kế thoáng khí",
+    "price": 1800000,
+    "quantity": 15,
+    "image": "product32.png",
+    "categoryId": 1,
+    "color": "Trắng",
+    "storageInstruction": "Bảo quản nơi thoáng mát",
+    "tips": "Mẹo sử dụng"
+  },
+  {
+    "_id": 8,
+    "productName": "Nike Blazer Mid",
+    "description": "Giày cổ cao phong cách retro",
+    "price": 1700000,
+    "quantity": 60,
+    "image": "product42.png",
+    "categoryId": 1,
+    "color": "Đen",
+    "storageInstruction": "Bảo quản nơi thoáng mát",
+    "tips": "Mẹo sử dụng"
+  },
+  {
+    "_id": 9,
+    "productName": "Nike Air Jordan 1",
+    "description": "Biểu tượng trong làng giày thể thao",
+    "price": 3000000,
+    "quantity": 10,
+    "image": "product90.png",
+    "categoryId": 1,
+    "color": "Đỏ",
+    "storageInstruction": "Bảo quản nơi thoáng mát",
+    "tips": "Mẹo sử dụng"
+  },
+  {
+    "_id": 10,
+    "productName": "Nike Air Max 90",
+    "description": "Giày thể thao với thiết kế cổ điển và đệm Air Max",
+    "price": 1900000,
+    "quantity": 35,
+    "image": "product91.png",
+    "categoryId": 1,
+    "color": "Xám",
+    "storageInstruction": "Bảo quản nơi thoáng mát",
+    "tips": "Mẹo sử dụng"
+  }
+]
