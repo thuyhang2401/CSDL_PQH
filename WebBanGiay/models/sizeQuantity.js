@@ -29,6 +29,6 @@ const sizeQttSchema = new mongoose.Schema({
         type: sizeSchema,
         required: true,
     }
-});
+}, { versionKey: false });
 
 module.exports = mongoose.model('sizequantities', sizeQttSchema);

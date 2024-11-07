@@ -5,10 +5,10 @@ const categorySchema = new mongoose.Schema({
         type: Number,
         required: true,
     },
-    categotyName: {
+    categoryName: {
         type: String,
         required: true,
     }
-});
+}, { versionKey: false });
 
 module.exports = mongoose.model('categories', categorySchema);

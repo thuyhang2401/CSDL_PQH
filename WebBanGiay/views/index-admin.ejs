@@ -151,7 +151,7 @@
           </div>
           <!--Form thêm sản phẩm-->
           <div id="them" class="them_sp">
-            <form>
+            <form action="/admins/addProduct" method="POST" enctype="multipart/form-data">
               <div class="close-add-prd">
                 <a href="#" class="icon-close">
                   <i class="fa-solid fa-circle-xmark fa-2xl"
@@ -161,27 +161,40 @@
               <h4>Thêm sản phẩm</h4>
               <div class="add-name">
                 <label class="form-label">Tên sản phẩm</label>
-                <input type="text" placeholder="Nhập tên sản phẩm" class="form-control">
+                <input type="text" placeholder="Nhập tên sản phẩm" class="form-control" name="productName" required>
               </div>
               <div class="add-category">
                 <label class="form-label">Danh mục sản phẩm</label>
-                <select id="contentDropdown" onchange="updateContent()">
-                  <option value="content1">Nội dung 1</option>
-                  <option value="content2">Nội dung 2</option>
-                  <option value="content3">Nội dung 3</option>
+                <select id="contentDropdown" name="categoryId" onchange="updateContent()">
+                  <% for (let category of categories) {%>
+                    <option value="<%= category._id %>">
+                      <%= category.categoryName %>
+                    </option>
+                    <% } %>
                 </select>
               </div>
               <div class="add-price">
                 <label class="form-label">Giá bán (VNĐ)</label>
-                <input type="number" placeholder="Nhập giá bán" class="form-control">
+                <input type="number" placeholder="Nhập giá bán" class="form-control" name="price" required>
+              </div>
+              <div class="add-hdbq">
+                <label class="form-label">Màu</label>
+                <input type="text" placeholder="Nhập màu sản phẩm" class="form-control" name="color" required>
               </div>
               <div class="add-desc">
                 <label class="form-label">Mô tả sản phẩm</label>
-                <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control"></textarea>
+                <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control" name="description"
+                  required></textarea>
               </div>
               <div class="add-hdbq">
                 <label class="form-label">Hướng dẫn bảo quản</label>
-                <input type="text" placeholder="Nhập hướng dẫn bảo quản" class="form-control">
+                <textarea type="text" placeholder="Nhập hướng dẫn bảo quản" class="form-control"
+                  name="storageInstruction"></textarea>
+              </div>
+              <div class="add-hdbq">
+                <label class="form-label">Mẹo sử dụng</label>
+                <textarea type="text" placeholder="Nhập mẹo sử dụng" class="form-control" name="tips"
+                  required></textarea>
               </div>
               <div class="add-quantity-size">
                 <label class="form-label">Số lượng trong kho</label>
@@ -200,28 +213,28 @@
                     <td>45</td>
                   </thead>
                   <tr>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
+                    <td><input type="number" name="amount35" value="0" required></td>
+                    <td><input type="number" name="amount36" value="0" required></td>
+                    <td><input type="number" name="amount37" value="0" required></td>
+                    <td><input type="number" name="amount38" value="0" required></td>
+                    <td><input type="number" name="amount39" value="0" required></td>
+                    <td><input type="number" name="amount40" value="0" required></td>
+                    <td><input type="number" name="amount41" value="0" required></td>
+                    <td><input type="number" name="amount42" value="0" required></td>
+                    <td><input type="number" name="amount43" value="0" required></td>
+                    <td><input type="number" name="amount44" value="0" required></td>
+                    <td><input type="number" name="amount45" value="0" required></td>
                   </tr>
                 </table>
               </div>
               <div class="add-if add-img">
                 <label class="form-label">Hình ảnh</label>
-                <input type="file" placeholder="Chọn ảnh">
+                <input type="file" placeholder="Chọn ảnh" name="image" required>
               </div>
               <div class="btn-bl">
                 <a href="#" style="margin-right: 20px;" onclick="document.getElementById('them').style.display='none'"
                   class="btn-close-text"><span>Hủy</span></a>
-                <a href="#" style="margin-right: 20px;" class="btn-add"><span>Thêm sản phẩm</span></a>
+                <input type="submit" style="margin-right: 20px;" class="btn-add" value="Thêm sản phẩm">
               </div>
             </form>
           </div>
@@ -306,7 +319,7 @@
           </div>
           <!--Hết form sửa sản phẩm-->
 
-          <!--Form sửa sản phẩm-->
+          <!--Form xóa sản phẩm-->
           <div id="xoa_id01" class="xoa_sp">
             <form>
               <div class="close-add-prd">
@@ -389,72 +402,29 @@
         <div class="row">
           <div class="products">
             <!--Start product-->
-            <div class="product">
-              <div class="nav-img-product">
-                <img class="img-product" src="/images/product22.png" href="#">
+            <% for (let product of prods) { %>
+              <div class="product">
+                <div class="nav-img-product">
+                  <img class="img-product" src="/images/<%= product.image %>" href="#">
+                </div>
+                <p class="category-product">
+                  <%= product.categoryId.categoryName %>
+                </p>
+                <h4>
+                  <%= product.productName %>
+                </h4>
+                <p class="price-product">
+                  <%= product.price.toLocaleString('de-DE') %> VNĐ
+                </p>
+                <div class="btn-product">
+                  <a href="#" class="text-center py-2 mr-1 btn-close-text"
+                    onclick="document.getElementById('sua_id01').style.display='block'" style="width:auto;">Sửa</a>
+                  <a href="#" class="text-center py-2 mr-1 btn-add"
+                    onclick="document.getElementById('xoa_id01').style.display='block'" style="width:auto;">Xóa</a>
+                </div>
               </div>
-              <p class="category-product">Danh mục sản phẩm</p>
-              <h4>Tên sản phẩm</h4>
-              <p class="price-product">Giá VNĐ</p>
-              <div class="btn-product">
-                <a href="#" class="text-center py-2 mr-1 btn-close-text"
-                  onclick="document.getElementById('sua_id01').style.display='block'" style="width:auto;">Sửa</a>
-                <a href="#" class="text-center py-2 mr-1 btn-add"
-                  onclick="document.getElementById('xoa_id01').style.display='block'" style="width:auto;">Xóa</a>
-              </div>
-            </div>
-            <!--End product-->
-            <!--Start product-->
-            <div class="product">
-              <div class="nav-img-product">
-                <img class="img-product" src="/images/product42.png" href="#">
-              </div>
-              <p class="category-product">Danh mục sản phẩm</p>
-              <h4>Tên sản phẩm</h4>
-              <p class="price-product">Giá VNĐ</p>
-              <div class="btn-product">
-                <a href="#" class="text-center py-2 mr-1 btn-close-text"
-                  onclick="document.getElementById('sua_id01').style.display='block'" style="width:auto;">Sửa</a>
-                <a href="#" class="text-center py-2 mr-1 btn-add"
-                  onclick="document.getElementById('xoa_id01').style.display='block'" style="width:auto;">Xóa</a>
-              </div>
-            </div>
-            <!--End product-->
-
-            <!--Start product-->
-            <div class="product">
-              <div class="nav-img-product">
-                <img class="img-product" src="/images/product82.png" href="#">
-              </div>
-              <p class="category-product">Danh mục sản phẩm</p>
-              <h4>Tên sản phẩm</h4>
-              <p class="price-product">Giá VNĐ</p>
-              <div class="btn-product">
-                <a href="#" class="text-center py-2 mr-1 btn-close-text"
-                  onclick="document.getElementById('sua_id01').style.display='block'" style="width:auto;">Sửa</a>
-                <a href="#" class="text-center py-2 mr-1 btn-add"
-                  onclick="document.getElementById('xoa_id01').style.display='block'" style="width:auto;">Xóa</a>
-              </div>
-            </div>
-            <!--End product-->
-
-            <!--Start product-->
-            <div class="product">
-              <div class="nav-img-product">
-                <img class="img-product" src="/images/product32.png" href="#">
-              </div>
-              <p class="category-product">Danh mục sản phẩm</p>
-              <h4>Tên sản phẩm</h4>
-              <p class="price-product">Giá VNĐ</p>
-              <div class="btn-product">
-                <a href="#" class="text-center py-2 mr-1 btn-close-text"
-                  onclick="document.getElementById('sua_id01').style.display='block'" style="width:auto;">Sửa</a>
-                <a href="#" class="text-center py-2 mr-1 btn-add"
-                  onclick="document.getElementById('xoa_id01').style.display='block'" style="width:auto;">Xóa</a>
-              </div>
-            </div>
-            <!--End product-->
-
+              <% } %>
+                <!--End product-->
 
           </div>
 

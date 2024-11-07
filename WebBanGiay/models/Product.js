@@ -39,6 +39,6 @@ const productSchema = new mongoose.Schema({
     tips: {
         type: String,
     }
-});
+}, { versionKey: false });
 
 module.exports = mongoose.model('products', productSchema);
