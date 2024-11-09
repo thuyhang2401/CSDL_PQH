@@ -165,7 +165,7 @@
               </div>
               <div class="add-category">
                 <label class="form-label">Danh mục sản phẩm</label>
-                <select id="contentDropdown" name="categoryId" onchange="updateContent()">
+                <select name="categoryId" onchange="updateContent()">
                   <% for (let category of categories) {%>
                     <option value="<%= category._id %>">
                       <%= category.categoryName %>
@@ -229,7 +229,9 @@
               </div>
               <div class="add-if add-img">
                 <label class="form-label">Hình ảnh</label>
-                <input type="file" placeholder="Chọn ảnh" name="image" required>
+                <div>
+                  <input type="file" placeholder="Chọn ảnh" name="image">
+                </div>
               </div>
               <div class="btn-bl">
                 <a href="#" style="margin-right: 20px;" onclick="document.getElementById('them').style.display='none'"
@@ -240,10 +242,11 @@
           </div>
           <!--Hết form thêm sản phẩm-->
 
-          <!--Form sửa sản phẩm-->
+          <!-- Form sửa sản phẩm-->
           <div id="sua_id01" class="sua_sp">
             <form>
               <div class="close-add-prd">
+                <input hidden id="pidEditModal" name="pidEdit">
                 <a href="#">
                   <i class="fa-solid fa-circle-xmark fa-2xl"
                     onclick="document.getElementById('sua_id01').style.display='none'" class="close"></i>
@@ -252,27 +255,42 @@
               <h4>Sửa thông tin sản phẩm</h4>
               <div class="add-if add-name mb-3">
                 <label class="form-label">Tên sản phẩm</label>
-                <input type="text" placeholder="Nhập tên sản phẩm" class="form-control">
+                <input type="text" placeholder="Nhập tên sản phẩm" class="form-control" id="nameEditModal"
+                  name="productName">
               </div>
               <div class="add-category">
                 <label class="form-label">Danh mục sản phẩm</label>
-                <select id="contentDropdown" onchange="updateContent()">
-                  <option value="content1">Nội dung 1</option>
-                  <option value="content2">Nội dung 2</option>
-                  <option value="content3">Nội dung 3</option>
+                <select id="contentEditDropdown" onchange="updateContent()">
+                  <% for (let category of categories) {%>
+                    <option value="<%= category._id %>">
+                      <%= category.categoryName %>
+                    </option>
+                    <% } %>
                 </select>
               </div>
               <div class="add-if add-price">
                 <label class="form-label">Giá bán (VNĐ)</label>
-                <input type="number" placeholder="Nhập giá bán" class="form-control">
+                <input type="number" placeholder="Nhập giá bán" class="form-control" id="priceEditModal" name="price">
+              </div>
+              <div class="add-hdbq">
+                <label class="form-label">Màu</label>
+                <input type="text" placeholder="Nhập màu sản phẩm" class="form-control" id="colorEditModal" name="color"
+                  required>
               </div>
               <div class="add-if add-desc">
                 <label class="form-label">Mô tả sản phẩm</label>
-                <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control"></textarea>
+                <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control" id="descriptionEditModal"
+                  name="description"></textarea>
               </div>
               <div class="add-if add-hdbq">
                 <label class="form-label">Hướng dẫn bảo quản</label>
-                <input type="text" placeholder="Nhập hướng dẫn bảo quản" class="form-control">
+                <textarea type="text" placeholder="Nhập hướng dẫn bảo quản" class="form-control"
+                  id="instructionEditModal" name="storageInstruction"></textarea>
+              </div>
+              <div class="add-hdbq">
+                <label class="form-label">Mẹo sử dụng</label>
+                <textarea type="text" placeholder="Nhập mẹo sử dụng" class="form-control" id="tipsEditModal" name="tips"
+                  required></textarea>
               </div>
               <div class="add-if add-quantity-size">
                 <label class="form-label">Số lượng trong kho</label>
@@ -291,24 +309,27 @@
                     <td>45</td>
                   </thead>
                   <tr>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
+                    <td><input type="number" id="amount35EditModal" name="amount35" value="0" required></td>
+                    <td><input type="number" id="amount36EditModal" name="amount36" value="0" required></td>
+                    <td><input type="number" id="amount37EditModal" name="amount37" value="0" required></td>
+                    <td><input type="number" id="amount38EditModal" name="amount38" value="0" required></td>
+                    <td><input type="number" id="amount39EditModal" name="amount39" value="0" required></td>
+                    <td><input type="number" id="amount40EditModal" name="amount40" value="0" required></td>
+                    <td><input type="number" id="amount41EditModal" name="amount41" value="0" required></td>
+                    <td><input type="number" id="amount42EditModal" name="amount42" value="0" required></td>
+                    <td><input type="number" id="amount43EditModal" name="amount43" value="0" required></td>
+                    <td><input type="number" id="amount44EditModal" name="amount44" value="0" required></td>
+                    <td><input type="number" id="amount45EditModal" name="amount45" value="0" required></td>
                   </tr>
                 </table>
               </div>
               <div class="add-if add-img">
                 <label class="form-label">Hình ảnh</label>
-                <input type="file" placeholder="Chọn ảnh">
+                <div>
+                  <input type="file" name="image" placeholder="Chọn ảnh" />
+                </div>
               </div>
+              <input type="hidden" id="imageEditModal" name="oldImage" />
               <div class="btn-bl">
                 <a href="#" style="margin-right: 20px;"
                   onclick="document.getElementById('sua_id01').style.display='none'"
@@ -317,12 +338,13 @@
               </div>
             </form>
           </div>
-          <!--Hết form sửa sản phẩm-->
+          <!--Hết form sửa sản phẩm -->
 
           <!--Form xóa sản phẩm-->
           <div id="xoa_id01" class="xoa_sp">
             <form>
               <div class="close-add-prd">
+                <input hidden id="pidDeleteModal" name="pidDelete">
                 <a href="#">
                   <i class="fa-solid fa-circle-xmark fa-2xl"
                     onclick="document.getElementById('xoa_id01').style.display='none'" class="close"></i>
@@ -331,27 +353,42 @@
               <h4>Xóa sản phẩm</h4>
               <div class="add-if add-name mb-3">
                 <label class="form-label">Tên sản phẩm</label>
-                <input type="text" placeholder="Nhập tên sản phẩm" class="form-control">
+                <input type="text" placeholder="Nhập tên sản phẩm" class="form-control" id="nameDeleteModal"
+                  name="productName">
               </div>
               <div class="add-category">
                 <label class="form-label">Danh mục sản phẩm</label>
-                <select id="contentDropdown" onchange="updateContent()">
-                  <option value="content1">Nội dung 1</option>
-                  <option value="content2">Nội dung 2</option>
-                  <option value="content3">Nội dung 3</option>
+                <select id="contentDeleteDropdown" onchange="updateContent()">
+                  <% for (let category of categories) {%>
+                    <option value="<%= category._id %>">
+                      <%= category.categoryName %>
+                    </option>
+                    <% } %>
                 </select>
               </div>
               <div class="add-if add-price">
                 <label class="form-label">Giá bán (VNĐ)</label>
-                <input type="number" placeholder="Nhập giá bán" class="form-control">
+                <input type="number" placeholder="Nhập giá bán" class="form-control" id="priceDeleteModal" name="price">
+              </div>
+              <div class="add-hdbq">
+                <label class="form-label">Màu</label>
+                <input type="text" placeholder="Nhập màu sản phẩm" class="form-control" id="colorDeleteModal"
+                  name="color" required>
               </div>
               <div class="add-if add-desc">
                 <label class="form-label">Mô tả sản phẩm</label>
-                <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control"></textarea>
+                <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control" id="descriptionDeleteModal"
+                  name="description"></textarea>
               </div>
               <div class="add-if add-hdbq">
                 <label class="form-label">Hướng dẫn bảo quản</label>
-                <input type="text" placeholder="Nhập hướng dẫn bảo quản" class="form-control">
+                <textarea type="text" placeholder="Nhập hướng dẫn bảo quản" class="form-control"
+                  id="instructionDeleteModal" name="storageInstruction"></textarea>
+              </div>
+              <div class="add-hdbq">
+                <label class="form-label">Mẹo sử dụng</label>
+                <textarea type="text" placeholder="Nhập mẹo sử dụng" class="form-control" id="tipsDeleteModal"
+                  name="tips" required></textarea>
               </div>
               <div class="add-if add-quantity-size">
                 <label class="form-label">Số lượng trong kho</label>
@@ -370,24 +407,27 @@
                     <td>45</td>
                   </thead>
                   <tr>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
-                    <td><input type="number" value="0"></td>
+                    <td><input type="number" id="amount35DeleteModal" name="amount35" value="0" required></td>
+                    <td><input type="number" id="amount36DeleteModal" name="amount36" value="0" required></td>
+                    <td><input type="number" id="amount37DeleteModal" name="amount37" value="0" required></td>
+                    <td><input type="number" id="amount38DeleteModal" name="amount38" value="0" required></td>
+                    <td><input type="number" id="amount39DeleteModal" name="amount39" value="0" required></td>
+                    <td><input type="number" id="amount40DeleteModal" name="amount40" value="0" required></td>
+                    <td><input type="number" id="amount41DeleteModal" name="amount41" value="0" required></td>
+                    <td><input type="number" id="amount42DeleteModal" name="amount42" value="0" required></td>
+                    <td><input type="number" id="amount43DeleteModal" name="amount43" value="0" required></td>
+                    <td><input type="number" id="amount44DeleteModal" name="amount44" value="0" required></td>
+                    <td><input type="number" id="amount45DeleteModal" name="amount45" value="0" required></td>
                   </tr>
                 </table>
               </div>
               <div class="add-if add-img">
                 <label class="form-label">Hình ảnh</label>
-                <input type="file" placeholder="Chọn ảnh">
+                <div>
+                  <input type="file" name="image" placeholder="Chọn ảnh" />
+                </div>
               </div>
+              <input type="hidden" id="imageDeleteModal" name="oldImage" />
               <div class="btn-bl">
                 <a href="#" style="margin-right: 20px;"
                   onclick="document.getElementById('xoa_id01').style.display='none'"
@@ -417,23 +457,21 @@
                   <%= product.price.toLocaleString('de-DE') %> VNĐ
                 </p>
                 <div class="btn-product">
-                  <a href="#" class="text-center py-2 mr-1 btn-close-text"
-                    onclick="document.getElementById('sua_id01').style.display='block'" style="width:auto;">Sửa</a>
-                  <a href="#" class="text-center py-2 mr-1 btn-add"
-                    onclick="document.getElementById('xoa_id01').style.display='block'" style="width:auto;">Xóa</a>
+                  <a href="#" class="text-center py-2 mr-1 btn-close-text" onclick="openModal('<%= product._id %>'); 
+                    document.getElementById('sua_id01').style.display = 'block';" style="width:auto;">Sửa</a>
+                  <a href="#" class="text-center py-2 mr-1 btn-add" onclick="openModal('<%= product._id %>');
+                    document.getElementById('xoa_id01').style.display='block';" style="width:auto;">Xóa</a>
                 </div>
               </div>
               <% } %>
                 <!--End product-->
-
           </div>
-
         </div>
-
       </div>
     </div>
   </div>
   </div>
+
   <script>
     function updateContent() {
       const dropdown = document.getElementById('contentDropdown');
@@ -464,6 +502,67 @@
       }
     }
   </script>
+
+  <script>
+    function openModal(productId) {
+      fetch(`/admins/products/${productId}`)
+        .then(response => response.json())
+        .then(data => {
+          if (data.product) {
+            // edit modal
+            document.getElementById('pidEditModal').value = data.product._id;
+            document.getElementById('nameEditModal').value = data.product.productName;
+            document.getElementById('priceEditModal').value = data.product.price;
+            document.getElementById('colorEditModal').value = data.product.color;
+            document.getElementById('descriptionEditModal').value = data.product.description;
+            document.getElementById('instructionEditModal').value = data.product.storageInstruction;
+            document.getElementById('tipsEditModal').value = data.product.tips;
+            document.getElementById('imageEditModal').value = data.product.image;
+
+            let categoryEditSelect = document.getElementById('contentEditDropdown');
+            categoryEditSelect.innerHTML = '';
+
+            data.category.forEach(category => {
+              let option = document.createElement('option');
+              option.value = category._id;
+              option.textContent = category.categoryName;
+              categoryEditSelect.appendChild(option);
+            });
+            categoryEditSelect.value = data.product.categoryId._id;
+
+            for (let size = 35; size <= 45; size++) {
+              document.getElementById(`amount${size}EditModal`).value = data.sizeQtt[0].sizes[`size${size}`];
+            }
+
+            // delete modal
+            document.getElementById('pidDeleteModal').value = data.product._id;
+            document.getElementById('nameDeleteModal').value = data.product.productName;
+            document.getElementById('priceDeleteModal').value = data.product.price;
+            document.getElementById('colorDeleteModal').value = data.product.color;
+            document.getElementById('descriptionDeleteModal').value = data.product.description;
+            document.getElementById('instructionDeleteModal').value = data.product.storageInstruction;
+            document.getElementById('tipsDeleteModal').value = data.product.tips;
+            document.getElementById('imageDeleteModal').value = data.product.image;
+
+            let categoryDeleteSelect = document.getElementById('contentDeleteDropdown');
+            categoryDeleteSelect.innerHTML = '';
+            data.category.forEach(category => {
+              let option = document.createElement('option');
+              option.value = category._id;
+              option.textContent = category.categoryName;
+              categoryDeleteSelect.appendChild(option);
+            });
+            categoryDeleteSelect.value = data.product.categoryId._id;
+
+            for (let size = 35; size <= 45; size++) {
+              document.getElementById(`amount${size}DeleteModal`).value = data.sizeQtt[0].sizes[`size${size}`];
+            }
+          }
+        })
+        .catch(err => console.log('Error fetching product data:', err));
+    }
+  </script>
+
   <script src="/assets/libs/jquery/dist/jquery.min.js"></script>
   <script src="/assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
   <script src="/assets/js/sidebarmenu.js"></script>
