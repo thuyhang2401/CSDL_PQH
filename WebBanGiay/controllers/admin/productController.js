@@ -127,3 +127,15 @@ exports.getProductById = (req, res) => {
     })
     .catch((err) => console.log(err));
 };
+
+exports.deleteProduct = async (req, res) => {
+  const productId = req.body.pidDelete;
+
+  try {
+    await Product.deleteOne({ _id: productId });
+    await SizeQuantity.deleteOne({ productId: productId });
+    res.redirect('/admins/products');
+  } catch (error) {
+    console.log(err)
+  }
+};

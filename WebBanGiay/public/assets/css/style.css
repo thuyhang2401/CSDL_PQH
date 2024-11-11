@@ -9,6 +9,7 @@
   background-color: #5d87ff;
   color: white;
   border-radius: 10px;
+  border: none;
 }
 .btn-close-text{
   padding: 10px 15px;
@@ -107,7 +108,7 @@
           width:80%;
         }
       }
-      > input, select{
+      > select{
         height: 50px;
       }
 

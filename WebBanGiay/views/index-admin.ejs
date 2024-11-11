@@ -256,7 +256,7 @@
               <div class="add-if add-name mb-3">
                 <label class="form-label">Tên sản phẩm</label>
                 <input type="text" placeholder="Nhập tên sản phẩm" class="form-control" id="nameEditModal"
-                  name="productName">
+                  name="productName" required>
               </div>
               <div class="add-category">
                 <label class="form-label">Danh mục sản phẩm</label>
@@ -270,7 +270,8 @@
               </div>
               <div class="add-if add-price">
                 <label class="form-label">Giá bán (VNĐ)</label>
-                <input type="number" placeholder="Nhập giá bán" class="form-control" id="priceEditModal" name="price">
+                <input type="number" placeholder="Nhập giá bán" class="form-control" id="priceEditModal" name="price"
+                  required>
               </div>
               <div class="add-hdbq">
                 <label class="form-label">Màu</label>
@@ -280,7 +281,7 @@
               <div class="add-if add-desc">
                 <label class="form-label">Mô tả sản phẩm</label>
                 <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control" id="descriptionEditModal"
-                  name="description"></textarea>
+                  name="description" required></textarea>
               </div>
               <div class="add-if add-hdbq">
                 <label class="form-label">Hướng dẫn bảo quản</label>
@@ -342,9 +343,10 @@
 
           <!--Form xóa sản phẩm-->
           <div id="xoa_id01" class="xoa_sp">
-            <form>
+            <form action="/admins/deleteProduct?_method=DELETE" method="POST">
+              <input type="hidden" name="_method" value="DELETE">
               <div class="close-add-prd">
-                <input hidden id="pidDeleteModal" name="pidDelete">
+                <input type="hidden" id="pidDeleteModal" name="pidDelete">
                 <a href="#">
                   <i class="fa-solid fa-circle-xmark fa-2xl"
                     onclick="document.getElementById('xoa_id01').style.display='none'" class="close"></i>
@@ -353,8 +355,7 @@
               <h4>Xóa sản phẩm</h4>
               <div class="add-if add-name mb-3">
                 <label class="form-label">Tên sản phẩm</label>
-                <input type="text" placeholder="Nhập tên sản phẩm" class="form-control" id="nameDeleteModal"
-                  name="productName">
+                <input type="text" placeholder="Nhập tên sản phẩm" class="form-control" id="nameDeleteModal">
               </div>
               <div class="add-category">
                 <label class="form-label">Danh mục sản phẩm</label>
@@ -368,27 +369,26 @@
               </div>
               <div class="add-if add-price">
                 <label class="form-label">Giá bán (VNĐ)</label>
-                <input type="number" placeholder="Nhập giá bán" class="form-control" id="priceDeleteModal" name="price">
+                <input type="number" placeholder="Nhập giá bán" class="form-control" id="priceDeleteModal">
               </div>
               <div class="add-hdbq">
                 <label class="form-label">Màu</label>
-                <input type="text" placeholder="Nhập màu sản phẩm" class="form-control" id="colorDeleteModal"
-                  name="color" required>
+                <input type="text" placeholder="Nhập màu sản phẩm" class="form-control" id="colorDeleteModal">
               </div>
               <div class="add-if add-desc">
                 <label class="form-label">Mô tả sản phẩm</label>
-                <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control" id="descriptionDeleteModal"
-                  name="description"></textarea>
+                <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control"
+                  id="descriptionDeleteModal"></textarea>
               </div>
               <div class="add-if add-hdbq">
                 <label class="form-label">Hướng dẫn bảo quản</label>
                 <textarea type="text" placeholder="Nhập hướng dẫn bảo quản" class="form-control"
-                  id="instructionDeleteModal" name="storageInstruction"></textarea>
+                  id="instructionDeleteModal"></textarea>
               </div>
               <div class="add-hdbq">
                 <label class="form-label">Mẹo sử dụng</label>
-                <textarea type="text" placeholder="Nhập mẹo sử dụng" class="form-control" id="tipsDeleteModal"
-                  name="tips" required></textarea>
+                <textarea type="text" placeholder="Nhập mẹo sử dụng" class="form-control"
+                  id="tipsDeleteModal"></textarea>
               </div>
               <div class="add-if add-quantity-size">
                 <label class="form-label">Số lượng trong kho</label>
@@ -407,32 +407,32 @@
                     <td>45</td>
                   </thead>
                   <tr>
-                    <td><input type="number" id="amount35DeleteModal" name="amount35" value="0" required></td>
-                    <td><input type="number" id="amount36DeleteModal" name="amount36" value="0" required></td>
-                    <td><input type="number" id="amount37DeleteModal" name="amount37" value="0" required></td>
-                    <td><input type="number" id="amount38DeleteModal" name="amount38" value="0" required></td>
-                    <td><input type="number" id="amount39DeleteModal" name="amount39" value="0" required></td>
-                    <td><input type="number" id="amount40DeleteModal" name="amount40" value="0" required></td>
-                    <td><input type="number" id="amount41DeleteModal" name="amount41" value="0" required></td>
-                    <td><input type="number" id="amount42DeleteModal" name="amount42" value="0" required></td>
-                    <td><input type="number" id="amount43DeleteModal" name="amount43" value="0" required></td>
-                    <td><input type="number" id="amount44DeleteModal" name="amount44" value="0" required></td>
-                    <td><input type="number" id="amount45DeleteModal" name="amount45" value="0" required></td>
+                    <td><input type="number" id="amount35DeleteModal" value="0"></td>
+                    <td><input type="number" id="amount36DeleteModal" value="0"></td>
+                    <td><input type="number" id="amount37DeleteModal" value="0"></td>
+                    <td><input type="number" id="amount38DeleteModal" value="0"></td>
+                    <td><input type="number" id="amount39DeleteModal" value="0"></td>
+                    <td><input type="number" id="amount40DeleteModal" value="0"></td>
+                    <td><input type="number" id="amount41DeleteModal" value="0"></td>
+                    <td><input type="number" id="amount42DeleteModal" value="0"></td>
+                    <td><input type="number" id="amount43DeleteModal" value="0"></td>
+                    <td><input type="number" id="amount44DeleteModal" value="0"></td>
+                    <td><input type="number" id="amount45DeleteModal" value="0"></td>
                   </tr>
                 </table>
               </div>
               <div class="add-if add-img">
                 <label class="form-label">Hình ảnh</label>
                 <div>
-                  <input type="file" name="image" placeholder="Chọn ảnh" />
+                  <input type="file" placeholder="Chọn ảnh" />
                 </div>
               </div>
-              <input type="hidden" id="imageDeleteModal" name="oldImage" />
+              <input type="hidden" id="imageDeleteModal" />
               <div class="btn-bl">
                 <a href="#" style="margin-right: 20px;"
                   onclick="document.getElementById('xoa_id01').style.display='none'"
                   class="btn-close-text"><span>Hủy</span></a>
-                <a href="#" style="margin-right: 20px;" class="btn-add"><span>Xóa</span></a>
+                <input type="submit" style="margin-right: 20px;" class="btn-add" value="Xóa">
               </div>
             </form>
           </div>

@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const app = express();
+var methodOverride = require('method-override');
 const authController = require('./controllers/authController');
 const productController = require('./controllers/productController');
 // Import routes
