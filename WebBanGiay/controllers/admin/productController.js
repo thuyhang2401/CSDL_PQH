@@ -139,3 +139,57 @@ exports.deleteProduct = async (req, res) => {
     console.log(err)
   }
 };
+
+exports.updateProduct = async (req, res) => {
+  try {
+    const productId = req.body.pidEdit;
+    const { productName, description, price, categoryId, color, storageInstruction, tips, image, oldImage } = req.body;
+    let imageName;
+    if (image) {
+      imageName = image;
+    } else {
+      imageName = oldImage;
+    }
+
+    const quantities = [
+      'amount35', 'amount36', 'amount37', 'amount38', 'amount39',
+      'amount40', 'amount41', 'amount42', 'amount43', 'amount44', 'amount45'
+    ];
+
+    const totalQuantity = quantities.reduce((sum, quantityName) => {
+      const quantity = parseInt(req.body[quantityName], 10) || 0;
+      return sum + quantity;
+    }, 0);
+
+    // update product
+    const product = await Product.findById(productId);
+
+    product.productName = productName;
+    product.description = description;
+    product.price = price;
+    product.quantity = totalQuantity;
+    product.image = imageName;
+    product.categoryId = categoryId;
+    product.color = color;
+    product.storageInstruction = storageInstruction;
+    product.tips = tips;
+    await product.save();
+
+    // update sizeQuantity
+    const sizeQuantitiesData = quantities.reduce((sizes, quantityName) => {
+      const size = quantityName.replace('amount', 'size');
+      sizes[size] = parseInt(req.body[quantityName], 10) || 0;
+      return sizes;
+    }, {});
+
+    const sizeQuantity = await SizeQuantity.findOne({ productId: productId });
+
+    sizeQuantity.sizes = sizeQuantitiesData;
+    await sizeQuantity.save();
+
+    res.redirect('/admins/products');
+  }
+  catch (err) {
+    console.error(err);
+  }
+};

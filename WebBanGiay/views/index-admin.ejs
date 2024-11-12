@@ -244,7 +244,8 @@
 
           <!-- Form sửa sản phẩm-->
           <div id="sua_id01" class="sua_sp">
-            <form>
+            <form action="/admins/editProduct?_method=PUT" method="POST">
+              <input type="hidden" name="_method" value="PUT">
               <div class="close-add-prd">
                 <input hidden id="pidEditModal" name="pidEdit">
                 <a href="#">
@@ -260,7 +261,7 @@
               </div>
               <div class="add-category">
                 <label class="form-label">Danh mục sản phẩm</label>
-                <select id="contentEditDropdown" onchange="updateContent()">
+                <select id="contentEditDropdown" name="categoryId" onchange="updateContent()">
                   <% for (let category of categories) {%>
                     <option value="<%= category._id %>">
                       <%= category.categoryName %>
@@ -335,7 +336,7 @@
                 <a href="#" style="margin-right: 20px;"
                   onclick="document.getElementById('sua_id01').style.display='none'"
                   class="btn-close-text"><span>Hủy</span></a>
-                <a href="#" style="margin-right: 20px;" class="btn-add"><span>Sửa</span></a>
+                <input type="submit" style="margin-right: 20px;" class="btn-add" value="Sửa">
               </div>
             </form>
           </div>
