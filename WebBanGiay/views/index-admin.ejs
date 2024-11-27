@@ -37,7 +37,7 @@
               <span class="hide-menu">Quản lý cửa hàng</span>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="/index_admin.html" aria-expanded="false">
+              <a class="sidebar-link" href="/WebBanGiay/admins/products" aria-expanded="false">
                 <span>
                   <i class="ti ti-layout-dashboard"></i>
                 </span>
@@ -151,7 +151,7 @@
           </div>
           <!--Form thêm sản phẩm-->
           <div id="them" class="them_sp">
-            <form action="/admins/addProduct" method="POST" enctype="multipart/form-data">
+            <form action="/WebBanGiay/admins/addProduct" method="POST" enctype="multipart/form-data">
               <div class="close-add-prd">
                 <a href="#" class="icon-close">
                   <i class="fa-solid fa-circle-xmark fa-2xl"
@@ -244,7 +244,7 @@
 
           <!-- Form sửa sản phẩm-->
           <div id="sua_id01" class="sua_sp">
-            <form action="/admins/editProduct?_method=PUT" method="POST">
+            <form action="/WebBanGiay/admins/editProduct?_method=PUT" method="POST">
               <input type="hidden" name="_method" value="PUT">
               <div class="close-add-prd">
                 <input hidden id="pidEditModal" name="pidEdit">
@@ -344,7 +344,7 @@
 
           <!--Form xóa sản phẩm-->
           <div id="xoa_id01" class="xoa_sp">
-            <form action="/admins/deleteProduct?_method=DELETE" method="POST">
+            <form action="/WebBanGiay/admins/deleteProduct?_method=DELETE" method="POST">
               <input type="hidden" name="_method" value="DELETE">
               <div class="close-add-prd">
                 <input type="hidden" id="pidDeleteModal" name="pidDelete">
@@ -474,39 +474,8 @@
   </div>
 
   <script>
-    function updateContent() {
-      const dropdown = document.getElementById('contentDropdown');
-      const contentDisplay = document.getElementById('contentDisplay');
-
-      switch (dropdown.value) {
-        case 'content1':
-          contentDisplay.innerHTML = '<h2>Nội dung 1</h2><p>Đây là nội dung số 1.</p>';
-          break;
-        case 'content2':
-          contentDisplay.innerHTML = '<h2>Nội dung 2</h2><p>Đây là nội dung số 2.</p>';
-          break;
-        case 'content3':
-          contentDisplay.innerHTML = '<h2>Nội dung 3</h2><p>Đây là nội dung số 3.</p>';
-          break;
-        default:
-          contentDisplay.innerHTML = '<h2>Chọn một mục từ dropdown</h2>';
-      }
-    }
-
-    // Get the modal
-    var modal = document.getElementById('id01');
-
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-      if (event.target == modal) {
-        modal.style.display = "none";
-      }
-    }
-  </script>
-
-  <script>
     function openModal(productId) {
-      fetch(`/admins/products/${productId}`)
+      fetch(`/WebBanGiay/admins/products/${productId}`)
         .then(response => response.json())
         .then(data => {
           if (data.product) {

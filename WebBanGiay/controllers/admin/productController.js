@@ -96,7 +96,7 @@ exports.addProduct = async (req, res) => {
     });
 
     await sizeQuantity.save();
-    res.redirect('/admins/products');
+    res.redirect('/WebBanGiay/admins/products');
   } catch (err) {
     console.log('Error adding product:', err);
     res.status(500).send('Error adding product');
@@ -134,7 +134,7 @@ exports.deleteProduct = async (req, res) => {
   try {
     await Product.deleteOne({ _id: productId });
     await SizeQuantity.deleteOne({ productId: productId });
-    res.redirect('/admins/products');
+    res.redirect('/WebBanGiay/admins/products');
   } catch (error) {
     console.log(err)
   }
@@ -187,7 +187,7 @@ exports.updateProduct = async (req, res) => {
     sizeQuantity.sizes = sizeQuantitiesData;
     await sizeQuantity.save();
 
-    res.redirect('/admins/products');
+    res.redirect('/WebBanGiay/admins/products');
   }
   catch (err) {
     console.error(err);

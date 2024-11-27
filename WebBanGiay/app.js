@@ -41,6 +41,7 @@ db.once('open', function () {
 
 // Routes
 app.use('/', indexRouter);
+app.use('/WebBanGiay/admins', adminsRouter);;
 
 // Khởi động server
 module.exports = app;
