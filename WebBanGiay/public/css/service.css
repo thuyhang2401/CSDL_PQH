@@ -1,0 +1,152 @@
+
+.container-body {
+    text-align: center;
+    max-width: 800px;
+    padding: 20px;
+    margin-left: 250px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    color: #c4820e;
+}
+
+p {
+    font-size: 18px;
+    color: #333;
+}
+
+.steps {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 20px;
+}
+
+.step {
+    text-align: center;
+}
+
+.step img {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    margin-bottom: 10px;
+}
+
+.step p {
+    font-size: 16px;
+    color: #000;
+    margin: 0;
+}
+
+.arrow {
+    width: 30px;
+    height: 3px;
+    margin-top: 80px;
+    background-color: #333;
+    position: relative;
+}
+
+.arrow::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    right: -10px;
+    top: -2.55px;
+    border-width: 5px 0px 5px 10px;
+    border-color: transparent transparent transparent #333;
+}
+
+.section {
+    margin-bottom: 40px;
+}
+
+.warranty, .maintenance {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.warranty img, .maintenance img {
+    width: 400px;
+    height: 300px;
+    object-fit: cover;
+}
+
+.warranty-text, .maintenance-text {
+    text-align: left;
+    margin-left: 20px;
+}
+
+.warranty-text p, .maintenance-text p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.warranty-text strong, .maintenance-text strong {
+    color: #c4820e;
+}
+
+.warranty-text em, .maintenance-text em {
+    font-size: 16px;
+    color: #666;
+}
+
+.maintenance-text {
+    margin-left: 0;
+    margin-right: 20px;
+}
+.maintenance-1 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.maintenance-text-1 {
+    margin-left: 40px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+.maintenance-text-2 p{
+    margin-left: 200px;
+    margin-right: 10px;
+    font-size: 16px;
+}
+.maintenance-text-1 p:first-child {
+    margin-bottom: 5px;
+}
+
+
+.steps, .content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.text p {
+    margin: 10px 0;
+}
+
+.text strong {
+    color: #b76e22;
+}
+
+.image img {
+    width: 100%;
+    border-radius: 8px;
+}
+
+@media (max-width: 768px) {
+    .steps, .content {
+        flex-direction: column;
+    }
+
+    .arrow {
+        display: none;
+    }
+}
