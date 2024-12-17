@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Nike Admin</title>
+    <link
+      rel="shortcut icon"
+      type="image/png"
+      href="assets/images/logos/favicon.png"
+    />
+    <link rel="stylesheet" href="assets/css/styles.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="css/all.min.css" />
+  </head>
+
+  <body>
+   
+    <div
+      class="page-wrapper"
+      id="main-wrapper"
+      data-layout="vertical"
+      data-navbarbg="skin6"
+      data-sidebartype="full"
+      data-sidebar-position="fixed"
+      data-header-position="fixed"
+    >
+      <!-- Sidebar Start -->
+      <aside class="left-sidebar">
+        <!-- Sidebar scroll-->
+        <div>
+          <div
+            class="brand-logo d-flex align-items-center justify-content-between"
+          >
+            <a href="index_admin.html" class="text-nowrap logo-img" style="text-align: center; padding: 20px 0px;">
+              <img src="images/logo-nike.png" width="50%" alt=""/>
+            </a>
+            <div
+              class="close-btn d-xl-none d-block sidebartoggler cursor-pointer"
+              id="sidebarCollapse"
+            >
+              <i class="ti ti-x fs-8"></i>
+            </div>
+          </div>
+          <!-- Sidebar navigation-->
+          <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+            <ul id="sidebarnav">
+              <li class="nav-small-cap">
+                <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                <span class="hide-menu">Quản lý cửa hàng</span>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="index_admin.html"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Sản phẩm</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a class="sidebar-link" href="order_admin.html" aria-expanded="false">
+                  <span>
+                    <i class="ti ti-truck-delivery"></i>
+                  </span>
+                  <span class="hide-menu">Đơn hàng</span>
+                </a>
+              </li>
+              </ul>
+              <ul id="sidebarnav">
+                <li class="nav-small-cap">
+                  <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                  <span class="hide-menu">Quản lý thông tin</span>
+                </li>
+                <li class="sidebar-item">
+                  <a
+                    class="sidebar-link"
+                    href="blog_admin.html"
+                    aria-expanded="false"
+                  >
+                    <span>
+                      <i class="ti ti-message-dots"></i>
+                    </span>
+                    <span class="hide-menu">BLOG</span>
+                  </a>
+                </li>
+                <li class="sidebar-item">
+                  <a class="sidebar-link" href="feedback_admin.html" aria-expanded="false">
+                    <span>
+                      <i class="ti ti-message-report"></i>
+                    </span>
+                    <span class="hide-menu">Đánh giá sản phẩm</span>
+                  </a>
+                </li>
+                </ul>
+                <ul id="sidebarnav">
+                  <li class="nav-small-cap">
+                    <i class="ti ti-dots nav-small-cap-icon fs-4"></i>
+                    <span class="hide-menu">Quản lý quyền truy cập</span>
+                  </li>
+                  <li class="sidebar-item">
+                    <a
+                      class="sidebar-link"
+                      href="#"
+                      aria-expanded="false"
+                    >
+                      <span>
+                        <i class="ti ti-users"></i>
+                      </span>
+                      <span class="hide-menu">Tài khoản</span>
+                    </a>
+                  </li>
+                  </ul>
+            </ul>
+          </nav>
+          <!-- End Sidebar navigation -->
+        </div>
+        <!-- End Sidebar scroll-->
+      </aside>
+      <!--  Sidebar End -->
+      <!--  Main wrapper -->
+      <div class="body-wrapper">
+        <!--  Header Start -->
+        <header class="app-header">
+          <nav class="navbar navbar-expand-lg navbar-light">
+            <ul class="navbar-nav">
+              <li class="nav-item d-block d-xl-none">
+                <a
+                  class="nav-link sidebartoggler nav-icon-hover"
+                  id="headerCollapse"
+                  href="javascript:void(0)"
+                >
+                  <i class="ti ti-menu-2"></i>
+                </a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                  <i class="ti ti-bell-ringing"></i>
+                  <div class="notification bg-primary rounded-circle"></div>
+                </a>
+              </li>
+            </ul>
+            <div
+              class="navbar-collapse justify-content-end px-0"
+              id="navbarNav">
+              <ul
+                class="navbar-nav flex-row ms-auto align-items-center justify-content-end"
+              >
+                <li class="nav-item dropdown">
+                  <a
+                    class="nav-link nav-icon-hover"
+                    href="javascript:void(0)"
+                    id="drop2"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    <img
+                      src="assets/images/profile/user-1.jpg"
+                      alt=""
+                      width="35"
+                      height="35"
+                      class="rounded-circle"
+                    />
+                  </a>
+                  <div
+                    class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
+                    aria-labelledby="drop2"
+                  >
+                    <div class="message-body">
+                      <a
+                        href="javascript:void(0)"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                      >
+                        <i class="ti ti-mail fs-6"></i>
+                        <p class="mb-0 fs-3">Tài khoản của tôi</p>
+                      </a>
+                      <a
+                        href="index.html"
+                        class="d-flex align-items-center gap-2 dropdown-item"
+                      >
+                        <i class="ti ti-home fs-6"></i>
+                        <p class="mb-0 fs-3">Đi đến trang chủ</p>
+                      </a>
+                      <a
+                        href="./authentication-login.html"
+                        class="btn btn-outline-primary mx-3 mt-2 d-block"
+                        >Đăng xuất</a
+                      >
+                    </div>
+                  </div>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </header>
+
+        <!--  Header End -->
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="btn-add-product" style="margin-bottom: 20px;">
+              <a href="#" class="btn-add" onclick="document.getElementById('them').style.display='block'" style="width:auto;"><span>Thêm sản phẩm</span></a>
+            </div>
+            <!--Form thêm sản phẩm-->
+            <div id="them" class="them_sp">
+              <form>
+                <div class="close-add-prd">
+                  <a href="#" class="icon-close">
+                    <i class="fa-solid fa-circle-xmark fa-2xl" onclick="document.getElementById('them').style.display='none'" ></i>
+                  </a>
+                </div>
+                <h4>Thêm sản phẩm</h4>
+                <div class="add-name">
+                  <label class="form-label">Tên sản phẩm</label>
+                  <input type="text" placeholder="Nhập tên sản phẩm" class="form-control">
+                </div>
+                <div class="add-category">
+                  <label class="form-label">Danh mục sản phẩm</label>
+                  <select id="contentDropdown" onchange="updateContent()">
+                    <option value="content1">Nội dung 1</option>
+                    <option value="content2">Nội dung 2</option>
+                    <option value="content3">Nội dung 3</option>
+                  </select>
+                </div>
+                <div class="add-price">
+                  <label class="form-label">Giá bán (VNĐ)</label>
+                  <input type="number" placeholder="Nhập giá bán" class="form-control">
+                </div>
+                <div class="add-desc">
+                  <label class="form-label">Mô tả sản phẩm</label>
+                  <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control"></textarea>
+                </div>
+                <div class="add-hdbq">
+                  <label class="form-label">Hướng dẫn bảo quản</label>
+                  <input type="text" placeholder="Nhập hướng dẫn bảo quản" class="form-control">
+                </div>
+                <div class="add-quantity-size">
+                  <label class="form-label">Số lượng trong kho</label>
+                  <table>
+                    <thead>
+                      <td>35</td>
+                      <td>36</td>
+                      <td>37</td>
+                      <td>38</td>
+                      <td>39</td>
+                      <td>40</td>
+                      <td>41</td>
+                      <td>42</td>
+                      <td>43</td>
+                      <td>44</td>
+                      <td>45</td>
+                    </thead>
+                    <tr>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="add-if add-img">
+                  <label class="form-label">Hình ảnh</label>
+                  <input type="file" placeholder="Chọn ảnh">
+                </div>
+                <div class="btn-bl" >
+                  <a href="#" style="margin-right: 20px;" onclick="document.getElementById('them').style.display='none'" class="btn-close-text"><span>Hủy</span></a>
+                  <a href="#" style="margin-right: 20px;" class="btn-add"><span>Thêm sản phẩm</span></a>
+                </div>
+              </form>
+            </div>
+            <!--Hết form thêm sản phẩm-->
+
+            <!--Form sửa sản phẩm-->
+            <div id="sua_id01" class="sua_sp">
+              <form>
+                <div class="close-add-prd">
+                  <a href="#">
+                    <i class="fa-solid fa-circle-xmark fa-2xl" onclick="document.getElementById('sua_id01').style.display='none'" class="close"></i>
+                  </a>
+                </div>
+                <h4>Sửa thông tin sản phẩm</h4>
+                <div class="add-if add-name mb-3">
+                  <label class="form-label">Tên sản phẩm</label>
+                  <input type="text" placeholder="Nhập tên sản phẩm" class="form-control">
+                </div>
+                <div class="add-category">
+                  <label class="form-label">Danh mục sản phẩm</label>
+                  <select id="contentDropdown" onchange="updateContent()">
+                    <option value="content1">Nội dung 1</option>
+                    <option value="content2">Nội dung 2</option>
+                    <option value="content3">Nội dung 3</option>
+                  </select>
+                  </div>
+                <div class="add-if add-price">
+                  <label class="form-label">Giá bán (VNĐ)</label>
+                  <input type="number" placeholder="Nhập giá bán" class="form-control">
+                </div>
+                <div class="add-if add-desc">
+                  <label class="form-label">Mô tả sản phẩm</label>
+                  <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control"></textarea>
+                </div>
+                <div class="add-if add-hdbq">
+                  <label class="form-label">Hướng dẫn bảo quản</label>
+                  <input type="text" placeholder="Nhập hướng dẫn bảo quản" class="form-control">
+                </div>
+                <div class="add-if add-quantity-size">
+                  <label class="form-label">Số lượng trong kho</label>
+                  <table>
+                    <thead>
+                      <td>35</td>
+                      <td>36</td>
+                      <td>37</td>
+                      <td>38</td>
+                      <td>39</td>
+                      <td>40</td>
+                      <td>41</td>
+                      <td>42</td>
+                      <td>43</td>
+                      <td>44</td>
+                      <td>45</td>
+                    </thead>
+                    <tr>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="add-if add-img">
+                  <label class="form-label">Hình ảnh</label>
+                  <input type="file" placeholder="Chọn ảnh">
+                </div>
+                <div class="btn-bl" >
+                  <a href="#" style="margin-right: 20px;" onclick="document.getElementById('sua_id01').style.display='none'" class="btn-close-text"><span>Hủy</span></a>
+                  <a href="#" style="margin-right: 20px;" class="btn-add"><span>Sửa</span></a>
+                </div>
+              </form>
+            </div>
+            <!--Hết form sửa sản phẩm-->
+
+            <!--Form sửa sản phẩm-->
+            <div id="xoa_id01" class="xoa_sp">
+              <form>
+                <div class="close-add-prd">
+                  <a href="#">
+                    <i class="fa-solid fa-circle-xmark fa-2xl" onclick="document.getElementById('xoa_id01').style.display='none'" class="close"></i>
+                  </a>
+                </div>
+                <h4>Xóa sản phẩm</h4>
+                <div class="add-if add-name mb-3">
+                  <label class="form-label">Tên sản phẩm</label>
+                  <input type="text" placeholder="Nhập tên sản phẩm" class="form-control">
+                </div>
+                <div class="add-category">
+                  <label class="form-label">Danh mục sản phẩm</label>
+                  <select id="contentDropdown" onchange="updateContent()">
+                    <option value="content1">Nội dung 1</option>
+                    <option value="content2">Nội dung 2</option>
+                    <option value="content3">Nội dung 3</option>
+                  </select>
+                </div>
+                <div class="add-if add-price">
+                  <label class="form-label">Giá bán (VNĐ)</label>
+                  <input type="number" placeholder="Nhập giá bán" class="form-control">
+                </div>
+                <div class="add-if add-desc">
+                  <label class="form-label">Mô tả sản phẩm</label>
+                  <textarea type="text" placeholder="Nhập mô tả sản phẩm" class="form-control"></textarea>
+                </div>
+                <div class="add-if add-hdbq">
+                  <label class="form-label">Hướng dẫn bảo quản</label>
+                  <input type="text" placeholder="Nhập hướng dẫn bảo quản" class="form-control">
+                </div>
+                <div class="add-if add-quantity-size">
+                  <label class="form-label">Số lượng trong kho</label>
+                  <table>
+                    <thead>
+                      <td>35</td>
+                      <td>36</td>
+                      <td>37</td>
+                      <td>38</td>
+                      <td>39</td>
+                      <td>40</td>
+                      <td>41</td>
+                      <td>42</td>
+                      <td>43</td>
+                      <td>44</td>
+                      <td>45</td>
+                    </thead>
+                    <tr>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                      <td><input type="number" value="0"></td>
+                    </tr>
+                  </table>
+                </div>
+                <div class="add-if add-img">
+                  <label class="form-label">Hình ảnh</label>
+                  <input type="file" placeholder="Chọn ảnh">
+                </div>
+                <div class="btn-bl" >
+                  <a href="#" style="margin-right: 20px;" onclick="document.getElementById('xoa_id01').style.display='none'" class="btn-close-text"><span>Hủy</span></a>
+                  <a href="#" style="margin-right: 20px;" class="btn-add"><span>Xóa</span></a>
+                </div>
+              </form>
+            </div>
+            <!--Hết form xóa sản phẩm-->
+            </div>
+
+          <div class="row">
+            <div class="products">
+              <!--Start product-->
+              <div class="product">
+                  <div class="nav-img-product">
+                    <img class="img-product" src="images/product22.png" href="#">
+                  </div>
+                  <p class="category-product">Danh mục sản phẩm</p>
+                  <h4>Tên sản phẩm</h4>
+                  <p class="price-product">Giá VNĐ</p>
+                  <div class="btn-product">
+                    <a href="#" class="text-center py-2 mr-1 btn-close-text"
+                    onclick="document.getElementById('sua_id01').style.display='block'" style="width:auto;"
+                      >Sửa</a
+                    >
+                    <a href="#" class="text-center py-2 mr-1 btn-add" onclick="document.getElementById('xoa_id01').style.display='block'" style="width:auto;"
+                      >Xóa</a
+                    >
+                </div>
+              </div>
+              <!--End product-->
+              <!--Start product-->
+              <div class="product">
+                <div class="nav-img-product">
+                  <img class="img-product" src="images/product42.png" href="#">
+                </div>
+                <p class="category-product">Danh mục sản phẩm</p>
+                <h4>Tên sản phẩm</h4>
+                <p class="price-product">Giá VNĐ</p>
+                <div class="btn-product">
+                  <a href="#" class="text-center py-2 mr-1 btn-close-text"
+                  onclick="document.getElementById('sua_id01').style.display='block'" style="width:auto;"
+                    >Sửa</a
+                  >
+                  <a href="#" class="text-center py-2 mr-1 btn-add" onclick="document.getElementById('xoa_id01').style.display='block'" style="width:auto;"
+                    >Xóa</a
+                  >
+              </div>
+            </div>
+            <!--End product-->
+
+            <!--Start product-->
+            <div class="product">
+              <div class="nav-img-product">
+                <img class="img-product" src="images/product82.png" href="#">
+              </div>
+              <p class="category-product">Danh mục sản phẩm</p>
+              <h4>Tên sản phẩm</h4>
+              <p class="price-product">Giá VNĐ</p>
+              <div class="btn-product">
+                <a href="#" class="text-center py-2 mr-1 btn-close-text"
+                onclick="document.getElementById('sua_id01').style.display='block'" style="width:auto;"
+                  >Sửa</a
+                >
+                <a href="#" class="text-center py-2 mr-1 btn-add" onclick="document.getElementById('xoa_id01').style.display='block'" style="width:auto;"
+                  >Xóa</a
+                >
+            </div>
+          </div>
+          <!--End product-->
+
+          <!--Start product-->
+          <div class="product">
+            <div class="nav-img-product">
+              <img class="img-product" src="images/product32.png" href="#">
+            </div>
+            <p class="category-product">Danh mục sản phẩm</p>
+            <h4>Tên sản phẩm</h4>
+            <p class="price-product">Giá VNĐ</p>
+            <div class="btn-product">
+              <a href="#" class="text-center py-2 mr-1 btn-close-text"
+              onclick="document.getElementById('sua_id01').style.display='block'" style="width:auto;"
+                >Sửa</a
+              >
+              <a href="#" class="text-center py-2 mr-1 btn-add" onclick="document.getElementById('xoa_id01').style.display='block'" style="width:auto;"
+                >Xóa</a
+              >
+          </div>
+        </div>
+        <!--End product-->
+
+            
+            </div>
+            
+            </div>
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      function updateContent() {
+    const dropdown = document.getElementById('contentDropdown');
+    const contentDisplay = document.getElementById('contentDisplay');
+    
+    switch(dropdown.value) {
+        case 'content1':
+            contentDisplay.innerHTML = '<h2>Nội dung 1</h2><p>Đây là nội dung số 1.</p>';
+            break;
+        case 'content2':
+            contentDisplay.innerHTML = '<h2>Nội dung 2</h2><p>Đây là nội dung số 2.</p>';
+            break;
+        case 'content3':
+            contentDisplay.innerHTML = '<h2>Nội dung 3</h2><p>Đây là nội dung số 3.</p>';
+            break;
+        default:
+            contentDisplay.innerHTML = '<h2>Chọn một mục từ dropdown</h2>';
+    }
+}
+
+      // Get the modal
+      var modal = document.getElementById('id01');
+      
+      // When the user clicks anywhere outside of the modal, close it
+      window.onclick = function(event) {
+        if (event.target == modal) {
+          modal.style.display = "none";
+        }
+      }
+    </script>
+    <script src="assets/libs/jquery/dist/jquery.min.js"></script>
+    <script src="assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/sidebarmenu.js"></script>
+    <script src="assets/js/app.min.js"></script>
+    <script src="assets/libs/apexcharts/dist/apexcharts.min.js"></script>
+    <script src="assets/libs/simplebar/dist/simplebar.js"></script>
+    <script src="assets/js/dashboard.js"></script>
+  </body>
+</html>

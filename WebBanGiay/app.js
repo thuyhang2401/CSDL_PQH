@@ -1,56 +1,42 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
-var mongoose = require('mongoose');
+require('dotenv').config();
+const express = require('express');
+const mongoose = require('mongoose');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const passport = require('passport');
+const app = express();
+const authController = require('./controllers/authController');
+const productController = require('./controllers/productController');
+// Import routes
+const indexRouter = require('./routes/index');
+const path = require('path');
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
-
-// MongoDB connection string
-mongoose.connect('mongodb://localhost:27017/QuanLyBanGiay');
-
-// test connection
-const db = mongoose.connection
-
-db.on('error', console.error.bind(console, 'connection error:'))
-db.once('open', function () {
-  console.log('MongoDB connection successful')
-});
-
-var app = express();
-
-// view engine setup (Middleware)
-app.set('views', path.join(__dirname, 'views'));
+// Cấu hình EJS
 app.set('view engine', 'ejs');
-
-app.use(logger('dev'));
-app.use(express.json());
-app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
+// Đảm bảo đúng thư mục views
 app.use(express.static(path.join(__dirname, 'public')));
+app.set('views', path.join(__dirname, 'views'));
+// Middleware
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
+app.use(session({
+  secret: process.env.SESSION_SECRET || 'your-default-secret',  // Cung cấp secret mặc định
+  resave: false,
+  saveUninitialized: true,
+  cookie: { secure: false }  // Nếu không sử dụng HTTPS, set secure: false
+}));
 
-// routes
+
+// Kết nối MongoDB
+mongoose.connect(process.env.MONGODB_URI)
+    .then(() => console.log('MongoDB connected'))
+    .catch((err) => console.log('MongoDB connection error:', err));
+
+// Routes
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
 
-// catch 404 and forward to error handler
-app.use(function (req, res, next) {
-  next(createError(404));
+// Khởi động server
+const PORT = process.env.PORT || 3000;
+app.listen(PORT, () => {
+    console.log(`Server is running on port ${PORT}`);
 });
-
-// error handler
-app.use(function (err, req, res, next) {
-  // set locals, only providing error in development
-  res.locals.message = err.message;
-  res.locals.error = req.app.get('env') === 'development' ? err : {};
-
-  // render the error page
-  res.status(err.status || 500);
-  res.render('error');
-});
-
-console.log(`Server is running on http://localhost:3000`);
-
-module.exports = app;
