@@ -25,7 +25,7 @@ app.use(session({
   saveUninitialized: true,
   cookie: { secure: false }  // Nếu không sử dụng HTTPS, set secure: false
 }));
-
+app.use(methodOverride('_method'));
 
 // Kết nối MongoDB
 mongoose.connect('mongodb://localhost:27017/QuanLyBanGiay');
