@@ -5,12 +5,12 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const passport = require('passport');
 const app = express();
-const authController = require('./controllers/authController');
-const productController = require('./controllers/productController');
+var methodOverride = require('method-override');
+
 // Import routes
 const indexRouter = require('./routes/index');
 const path = require('path');
-
+var adminsRouter = require('./routes/admin');
 // Cấu hình EJS
 app.set('view engine', 'ejs');
 // Đảm bảo đúng thư mục views
@@ -40,6 +40,8 @@ db.once('open', function () {
 
 // Routes
 app.use('/', indexRouter);
+app.use('/WebBanGiay/admins', adminsRouter);
 
 // Khởi động server
+console.log(`Server is running on http://localhost:3000/dashboard`);
 module.exports = app;

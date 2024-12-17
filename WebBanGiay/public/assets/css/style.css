@@ -9,6 +9,7 @@
   background-color: #5d87ff;
   color: white;
   border-radius: 10px;
+  border: none;
 }
 .btn-close-text{
   padding: 10px 15px;
@@ -73,7 +74,7 @@
   /*left: 0;
   /*top: 0;*/
   width: 100%; /* Full width */
-  min-height: 800px; /* Full height */
+  min-height: 100%; /* Full height */
   overflow: auto; /* Enable scroll if needed */
   background-color: rgba(0, 0, 0, 0.7);
   padding-top: 50px;
@@ -107,7 +108,7 @@
           width:80%;
         }
       }
-      > input, select{
+      > select{
         height: 50px;
       }
 

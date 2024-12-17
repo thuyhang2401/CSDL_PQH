@@ -1,5 +1,5 @@
-const Product = require('../models/Product'); 
-const Category = require('../models/Category');
+const Product = require('../models/product'); 
+const Category = require('../models/category');
 const { ObjectId } = require('mongodb');
 
 // Controller to fetch and display products
