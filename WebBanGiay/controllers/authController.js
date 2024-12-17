@@ -65,3 +65,13 @@ exports.isUser = (req, res, next) => {
     }
     next();
 };
+
+//Logout
+exports.logout = (req, res) => {
+    req.session.destroy((err) => {
+        if (err) {
+            return res.status(500).send('Lỗi khi đăng xuất');
+        }
+        res.redirect('/dashboard');
+    });
+};

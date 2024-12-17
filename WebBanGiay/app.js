@@ -28,15 +28,18 @@ app.use(session({
 
 
 // Kết nối MongoDB
-mongoose.connect(process.env.MONGODB_URI)
-    .then(() => console.log('MongoDB connected'))
-    .catch((err) => console.log('MongoDB connection error:', err));
+mongoose.connect('mongodb://localhost:27017/QuanLyBanGiay');
+
+// test connection
+const db = mongoose.connection
+
+db.on('error', console.error.bind(console, 'connection error:'))
+db.once('open', function () {
+  console.log('MongoDB connection successful')
+});
 
 // Routes
 app.use('/', indexRouter);
 
 // Khởi động server
-const PORT = process.env.PORT || 3000;
-app.listen(PORT, () => {
-    console.log(`Server is running on port ${PORT}`);
-});
+module.exports = app;

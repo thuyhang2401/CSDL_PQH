@@ -10,7 +10,7 @@ const accountSchema = new mongoose.Schema({
         enum: ['user', 'admin'],
         default: 'user'
     }
-});
+}, { versionKey: false });
 
 // Mã hóa mật khẩu trước khi lưu vào DB
 accountSchema.pre('save', async function(next) {

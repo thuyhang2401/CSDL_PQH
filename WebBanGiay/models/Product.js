@@ -11,7 +11,7 @@ const productSchema = new mongoose.Schema({
   color: { type: String, required: true },
   storageInstruction: { type: String, required: true },
   tips: { type: String, required: true }
-});
+}, { versionKey: false });
 
 const Product = mongoose.model('Product', productSchema, 'products');
 

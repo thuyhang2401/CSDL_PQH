@@ -2,6 +2,13 @@ const express = require('express');
 const router = express.Router();
 const authController = require('../controllers/authController');
 const productController = require('../controllers/productController');
+
+router.use((req, res, next) => {
+    res.locals.user = req.session.userId
+        ? { loggedIn: true, role: req.session.isAdmin }
+        : { loggedIn: false };
+    next();
+});
 // Trang đăng ký
 router.get('/register', (req, res) => {
     res.render('login_signup');  // Render form đăng ký
@@ -31,4 +38,7 @@ router.get('/dashboard', authController.isUser, (req, res) => {
     res.render('index');  // Render dashboard dành cho user
   });
 router.get('/', authController.isUser, productController.getHomePage);
+
+// Đăng xuất
+router.get('/logout', authController.logout); 
 module.exports = router;
