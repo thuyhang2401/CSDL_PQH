@@ -26,13 +26,16 @@ router.get('/dashboard', (req, res) => {
     console.log("Route / is accessed");  // Thêm log để kiểm tra
     productController.getHomePage(req, res);  // Gọi controller để lấy trang chủ
   });
+  
 // Trang Admin (Phân quyền cho admin)
 router.get('/admin', authController.isAdmin, (req, res) => {
-    res.render('index_admin');  // Render dashboard dành cho admin
+    return res.redirect('/WebBanGiay/admins/products'); // Redirect dashboard dành cho admin
 });
+
 router.get('/', authController.isUser, (req, res) => {
     res.render('index');  // Render dashboard dành cho user
 });
+
 // Trang User (Phân quyền cho user)
 router.get('/dashboard', authController.isUser, (req, res) => {
     res.render('index');  // Render dashboard dành cho user
