@@ -6,6 +6,7 @@ const session = require('express-session');
 const passport = require('passport');
 const app = express();
 var methodOverride = require('method-override');
+var productsRouter = require('./routes/products');
 
 // Import routes
 const indexRouter = require('./routes/index');
@@ -41,7 +42,11 @@ db.once('open', function () {
 // Routes
 app.use('/', indexRouter);
 app.use('/WebBanGiay/admins', adminsRouter);
+app.use('/WebBanGiay/products', productsRouter);
 
 // Khởi động server
-console.log(`Server is running on http://localhost:3000/dashboard`);
+const PORT = 3000;
+app.listen(PORT,() =>{
+console.log(`Server is running on http://localhost:${PORT}/dashboard`);
+});
 module.exports = app;
