@@ -6,11 +6,13 @@ const session = require('express-session');
 const passport = require('passport');
 const app = express();
 var methodOverride = require('method-override');
+var productsRouter = require('./routes/products');
 
 // Import routes
 const indexRouter = require('./routes/index');
 const path = require('path');
 var adminsRouter = require('./routes/admin');
+const cartRoutes = require('./routes/cart');
 // Cấu hình EJS
 app.set('view engine', 'ejs');
 // Đảm bảo đúng thư mục views
@@ -23,7 +25,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'your-default-secret',  // Cung cấp secret mặc định
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }  // Nếu không sử dụng HTTPS, set secure: false
+  cookie: { secure: false }  
 }));
 app.use(methodOverride('_method'));
 
@@ -41,7 +43,12 @@ db.once('open', function () {
 // Routes
 app.use('/', indexRouter);
 app.use('/WebBanGiay/admins', adminsRouter);
+app.use('/WebBanGiay/products', productsRouter);
+app.use('/WebBanGiay/cart', cartRoutes);
 
 // Khởi động server
-console.log(`Server is running on http://localhost:3000/dashboard`);
+const PORT = 3000;
+app.listen(PORT,() =>{
+console.log(`Server is running on http://localhost:${PORT}/dashboard`);
+});
 module.exports = app;
