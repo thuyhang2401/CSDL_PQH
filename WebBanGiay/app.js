@@ -12,6 +12,7 @@ var productsRouter = require('./routes/products');
 const indexRouter = require('./routes/index');
 const path = require('path');
 var adminsRouter = require('./routes/admin');
+const cartRoutes = require('./routes/cart');
 // Cấu hình EJS
 app.set('view engine', 'ejs');
 // Đảm bảo đúng thư mục views
@@ -24,7 +25,7 @@ app.use(session({
   secret: process.env.SESSION_SECRET || 'your-default-secret',  // Cung cấp secret mặc định
   resave: false,
   saveUninitialized: true,
-  cookie: { secure: false }  // Nếu không sử dụng HTTPS, set secure: false
+  cookie: { secure: false }  
 }));
 app.use(methodOverride('_method'));
 
@@ -43,6 +44,7 @@ db.once('open', function () {
 app.use('/', indexRouter);
 app.use('/WebBanGiay/admins', adminsRouter);
 app.use('/WebBanGiay/products', productsRouter);
+app.use('/WebBanGiay/cart', cartRoutes);
 
 // Khởi động server
 const PORT = 3000;

@@ -107,7 +107,7 @@
 		<div class="container">
 			<div class="row no-gutters slider-text align-items-center justify-content-center">
 				<div class="col-md-9 ftco-animate text-center">
-					<p class="breadcrumbs"><span class="mr-2"><a href="index.html"></a></span> <span>Cart</span></p>
+					<p class="breadcrumbs"><span class="mr-2"><a href="index.html"></a></span> <span>Giỏ Hàng</span></p>
 					<h1 class="mb-0 bread">Giỏ hàng của tôi</h1>
 				</div>
 			</div>
@@ -115,79 +115,93 @@
 	</div>
 
 	<section class="ftco-section ftco-cart">
-        <div class="container">
-            <div class="row">
-                <div class="ct-left">
-                    <table class="tb">
-                        <thead>
-                            <tr class="text-center">
-                                <th>&nbsp;</th>
-                                <th>&nbsp;</th>
-                                <th>Tên sản phẩm</th>
-                                <th>Giá</th>
-                                <th>Số lượng</th>
-                                <th>Tổng tiền</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% if (cartItems.length > 0) { %>
-                                <% cartItems.forEach(item => { %>
-                                    <tr class="text-center">
-                                        <td class="xoa">
-                                            <a href="/cart/remove/<%= item.productId %>">X</a>
-                                        </td>
-                                        <td class="anhsp">
-                                            <img src="<%= item.image %>" alt="<%= item.name %>">
-                                        </td>
-                                        <td class="tensp">
-                                            <h3><%= item.name %></h3>
-                                            <p>Far far away, behind the word mountains, far from the countries</p>
-                                        </td>
-                                        <td class="gia"><%= item.price.toLocaleString() %> VNĐ</td>
-                                        <td class="soluong">
-                                            <input type="number" value="<%= item.purchaseQuantity %>" min="1">
-                                        </td>
-                                        <td class="tongtien"><%= (item.price * item.purchaseQuantity).toLocaleString() %> VNĐ</td>
-                                    </tr>
-                                <% }) %>
-                            <% } else { %>
-                                <tr>
-                                    <td colspan="6" class="text-center">Giỏ hàng trống</td>
-                                </tr>
-                            <% } %>
-                        </tbody>
-                    </table>
-                </div>
-                <div class="ct-right">
-                    <div class="sidebar-box">
-                        <div class="cart-total mb-3">
-                            <h3>Hóa đơn</h3>
-                            <p class="d-flex">
-                                <span>Tổng tiền</span>
-                                <span><%= total.toLocaleString() %> VNĐ</span>
-                            </p>
-                            <p class="d-flex">
-                                <span>Phí vận chuyển</span>
-                                <span>0 VNĐ</span>
-                            </p>
-                            <p class="d-flex">
-                                <span>Mã khuyến mãi</span>
-                                <span>0 VNĐ</span>
-                            </p>
-                            <hr>
-                            <p class="d-flex total-price">
-                                <span>Thành tiền</span>
-                                <span><%= total.toLocaleString() %> VNĐ</span>
-                            </p>
-                        </div>
-                        <p class="text-center">
-                            <a href="checkout.html" class="btn btn-primary py-3 px-4">Đặt hàng</a>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+		<div class="container">
+			<div class="row">
+				<div class="ct-left">
+					<table class="tb">
+						<thead>
+							<tr class="text-center">
+								<th>&nbsp;</th>
+								<th>&nbsp;</th>
+								<th>Tên sản phẩm</th>
+								<th>Giá</th>
+								<th>Số lượng</th>
+								<th>Tổng tiền</th>
+							</tr>
+						</thead>
+						<tbody>
+							<% if (cartItems && cartItems.length > 0) { %>
+								<% cartItems.forEach(item => { %>
+									<tr class="text-center" id="cart-item-<%= item.productId %>">
+										<td class="xoa">
+											<a href="/WebBanGiay/cart/remove/<%= item.productId %>" class="btn btn-danger btn-sm">X</a>
+										</td>
+	
+										<td class="anhsp">
+											<img src="<%= item.image %>" alt="<%= item.name %>" style="width: auto; height: auto;">
+										</td>
+										<td class="tensp">
+											<h5><%= item.name %></h5>
+											<p class="text-muted">Mô tả: Giày thể thao...</p>
+										</td>
+										<td class="gia"><%= item.price.toLocaleString() %> đ</td>
+										<td class="soluong">
+											<input 
+												type="number" 
+												class="form-control text-center" 
+												value="<%= item.purchaseQuantity %>" 
+												min="1"
+												data-product-id="<%= item.productId %>"
+												onchange="updateQuantity(this)" 
+												oninput="updateQuantity(this)">
+										</td>
+										<td class="tongtien" id="total-<%= item.productId %>">
+											<%= (item.price * item.purchaseQuantity).toLocaleString() %> đ
+										</td>
+									</tr>
+								<% }) %>
+							<% } else { %>
+								<tr>
+									<td colspan="6" class="text-center">Giỏ hàng của bạn hiện đang trống</td>
+								</tr>
+							<% } %>
+						</tbody>
+					</table>
+				</div>
+	
+				<div class="ct-right">
+					<div class="sidebar-box">
+						<div class="cart-total mb-3">
+							<h3>Hóa đơn</h3>
+							<div class="cart-total">
+								<p class="d-flex justify-content-between">
+									<span>Tổng tiền:</span>
+									<span id="total-cart"><%= total.toLocaleString() %> đ</span>
+								</p>
+								<p class="d-flex justify-content-between">
+									<span>Phí vận chuyển:</span>
+									<span>0 đ</span>
+								</p>
+								<p class="d-flex justify-content-between">
+									<span>Mã khuyến mãi:</span>
+									<span>0 đ</span>
+								</p>
+								<hr>
+								<p class="d-flex justify-content-between font-weight-bold">
+									<span>Thành tiền:</span>
+									<span id="total-payment"><%= total.toLocaleString() %> đ</span>
+								</p>
+							</div>
+							<p class="text-center">
+								<a href="/checkout" class="btn btn-primary py-3 px-4">Đặt hàng</a>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+	
 
 
 	<footer class="ftco-footer ftco-section">
@@ -297,41 +311,90 @@
 	<script src="/js/main.js"></script>
 
 	<script>
+		// Hàm định dạng số tiền với dấu "." phân cách
+		function formatCurrency(amount) {
+			return amount.toLocaleString('vi-VN', {
+				style: 'currency',
+				currency: 'VND',
+				minimumFractionDigits: 0, // Hiển thị 2 chữ số thập phân
+			}).replace(/,/g, '.'); // Thay dấu "," thành "."
+		}
+	
+		// Hàm cập nhật số lượng và tính lại tổng tiền cho sản phẩm
+		function updateQuantity(input) {
+			const quantity = parseInt(input.value);
+			const productId = input.getAttribute('data-product-id');
+			
+			// Kiểm tra nếu giá trị số lượng hợp lệ
+			if (isNaN(quantity) || quantity < 1) {
+				input.value = 1; // Đảm bảo số lượng tối thiểu là 1
+				return;
+			}
+			
+			// Lấy giá của sản phẩm từ thẻ td
+			const price = parseFloat(document.querySelector(`#cart-item-${productId} .gia`).innerText.replace(' VNĐ', '').replace(/\./g, '').replace(',', '.'));
+	
+			// Tính lại tổng tiền cho sản phẩm này
+			const newTotal = price * quantity;
+	
+			// Cập nhật tổng tiền của sản phẩm trong giỏ hàng
+			document.querySelector(`#total-${productId}`).innerText = formatCurrency(newTotal);
+	
+			// Cập nhật tổng tiền giỏ hàng
+			updateCartTotal();
+		}
+	
+		// Hàm cập nhật tổng tiền giỏ hàng
+		function updateCartTotal() {
+			let total = 0;
+	
+			// Duyệt qua tất cả các sản phẩm trong giỏ hàng và cộng tổng tiền
+			const totalElements = document.querySelectorAll('.tongtien');
+			totalElements.forEach(element => {
+				total += parseFloat(element.innerText.replace(' VNĐ', '').replace(/\./g, '').replace(',', '.'));
+			});
+	
+			// Cập nhật tổng tiền giỏ hàng và tổng tiền thanh toán
+			document.querySelector('#total-cart').innerText = formatCurrency(total);
+			document.querySelector('#total-payment').innerText = formatCurrency(total);
+		}
+	
+		// Hàm tăng số lượng khi click vào nút "+"
 		$(document).ready(function () {
-
-			var quantitiy = 0;
 			$('.quantity-right-plus').click(function (e) {
-
-				// Stop acting like a button
 				e.preventDefault();
-				// Get the field name
-				var quantity = parseInt($('#quantity').val());
-
-				// If is not undefined
-
-				$('#quantity').val(quantity + 1);
-
-
-				// Increment
-
+	
+				// Lấy input số lượng
+				var input = $(this).closest('.quantity-container').find('input');
+				var quantity = parseInt(input.val());
+	
+				// Tăng số lượng và cập nhật lại
+				input.val(quantity + 1);
+	
+				// Gọi hàm updateQuantity để tính lại tổng tiền
+				updateQuantity(input[0]);
 			});
-
+	
+			// Hàm giảm số lượng khi click vào nút "-"
 			$('.quantity-left-minus').click(function (e) {
-				// Stop acting like a button
 				e.preventDefault();
-				// Get the field name
-				var quantity = parseInt($('#quantity').val());
-
-				// If is not undefined
-
-				// Increment
-				if (quantity > 0) {
-					$('#quantity').val(quantity - 1);
+	
+				// Lấy input số lượng
+				var input = $(this).closest('.quantity-container').find('input');
+				var quantity = parseInt(input.val());
+	
+				// Giảm số lượng nếu lớn hơn 1
+				if (quantity > 1) {
+					input.val(quantity - 1);
 				}
+	
+				// Gọi hàm updateQuantity để tính lại tổng tiền
+				updateQuantity(input[0]);
 			});
-
 		});
 	</script>
+	
+	
 
 </body>
 

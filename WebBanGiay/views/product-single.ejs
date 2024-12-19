@@ -208,8 +208,18 @@
                         <div class="w-100"></div>
                     </div>
                     <p><b>Số lượng còn: <%= product.quantity %> đôi</b></p> <!-- Số lượng còn trong kho -->
-                    <p><a href="/WebBanGiay/cart/add" class="btn btn-black py-3 px-5 mr-2">Thêm vào giỏ hàng</a>
-                    <a href="/WebBanGiay/cart/add" class="btn btn-primary py-3 px-5">Mua ngay</a></p>
+                    
+					<form id="add-to-cart-form" action="/WebBanGiay/cart/add" method="POST">
+						<input type="hidden" name="productId" value="<%= product._id %>">
+						<input type="hidden" name="productName" value="<%= product.productName %>">
+						<input type="hidden" name="price" value="<%= product.price %>">
+						<input type="hidden" name="size" id="product-size">
+						<input type="hidden" name="quantity" id="product-quantity">
+						<button type="submit" class="btn btn-black py-3 px-5 mr-2">Thêm vào giỏ hàng</button>
+					</form>
+					
+
+                    <a href="/WebBanGiay/cart" class="btn btn-primary py-3 px-5">Mua ngay</a></p>
                 </div>
             </div>
 
@@ -504,42 +514,33 @@
 	<script src="/js/main.js"></script>
 
 	<script>
+		document.querySelector('.btn-black').addEventListener('click', function(event) {
+			// Cập nhật giá trị cho input hidden khi nhấn nút "Thêm vào giỏ hàng"
+			document.getElementById('product-size').value = document.querySelector('select[name="size"]').value;
+			document.getElementById('product-quantity').value = document.getElementById('quantity').value;
+		});
+	
 		$(document).ready(function () {
-
-			var quantitiy = 0;
+			var quantity = 1; // Bắt đầu từ 1
+			$('#quantity').val(quantity); 
+	
+			// Tăng số lượng
 			$('.quantity-right-plus').click(function (e) {
-
-				// Stop acting like a button
 				e.preventDefault();
-				// Get the field name
-				var quantity = parseInt($('#quantity').val());
-
-				// If is not undefined
-
+				quantity = parseInt($('#quantity').val());
 				$('#quantity').val(quantity + 1);
-
-
-				// Increment
-
 			});
-
+	
+			// Giảm số lượng
 			$('.quantity-left-minus').click(function (e) {
-				// Stop acting like a button
 				e.preventDefault();
-				// Get the field name
-				var quantity = parseInt($('#quantity').val());
-
-				// If is not undefined
-
-				// Increment
-				if (quantity > 0) {
+				quantity = parseInt($('#quantity').val());
+				if (quantity > 1) { // Không cho phép giảm xuống dưới 1
 					$('#quantity').val(quantity - 1);
 				}
 			});
-
 		});
 	</script>
-
 </body>
 
 </html>
