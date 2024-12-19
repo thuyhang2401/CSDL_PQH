@@ -8975,17 +8975,17 @@ h1, h2, h3, h4, h5,
         color: #000000;
         width: 100%;
         background: #fff; }
-      .product .text .bottom-area a.add-to-cart, .product .text .bottom-area a.buy-now {
+      .product .text .bottom-area button.add-to-cart-button, .product .text .bottom-area a.buy-now {
         font-size: 13px;
         color: #000000;
         text-transform: uppercase;
         font-weight: 300; }
-        .product .text .bottom-area a.add-to-cart i, .product .text .bottom-area a.buy-now i {
+        .product .text .bottom-area button.add-to-cart-button i, .product .text .bottom-area a.buy-now i {
           font-size: 16px; }
-      .product .text .bottom-area a.add-to-cart {
+      .product .text .bottom-area button.add-to-cart-button {
         background: #000000;
         color: #fff; }
-        .product .text .bottom-area a.add-to-cart:hover {
+        .product .text .bottom-area button.add-to-cart-button:hover {
           background: #dbcc8f;
           color: #fff; }
       .product .text .bottom-area a.buy-now {

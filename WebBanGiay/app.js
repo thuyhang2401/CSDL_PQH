@@ -47,8 +47,8 @@ app.use('/WebBanGiay/products', productsRouter);
 app.use('/WebBanGiay/cart', cartRoutes);
 
 // Khởi động server
-const PORT = 3000;
+const PORT = 3500;
 app.listen(PORT,() =>{
-console.log(`Server is running on http://localhost:${PORT}/dashboard`);
+console.log(`Server is running on http://localhost:${PORT}/WebBanGiay`);
 });
 module.exports = app;

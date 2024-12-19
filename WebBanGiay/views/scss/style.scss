@@ -1006,7 +1006,7 @@ h1, h2, h3, h4, h5,
 				width: 100%;
 				background: $white;
 			}
-			a.add-to-cart,a.buy-now{
+			button.add-to-cart-button,a.buy-now{
 				font-size: 13px;
 				color: $black;
 				text-transform: uppercase;
@@ -1015,7 +1015,7 @@ h1, h2, h3, h4, h5,
 					font-size: 16px;
 				}
 			}
-			a.add-to-cart{
+			button.add-to-cart-button{
 				background: $black;
 				color: $white;
 				&:hover{

@@ -42,7 +42,7 @@ exports.login = async (req, res) => {
         if (account.role === 'admin') {
             return res.redirect('/admin');
         } else {
-            return res.redirect('/dashboard');
+            return res.redirect('/WebBanGiay');
         }
     } catch (err) {
         console.error('Lỗi server:', err);  // In lỗi ra console
@@ -72,6 +72,6 @@ exports.logout = (req, res) => {
         if (err) {
             return res.status(500).send('Lỗi khi đăng xuất');
         }
-        res.redirect('/dashboard');
+        res.redirect('/WebBanGiay');
     });
 };

@@ -22,7 +22,7 @@ router.get('/login', (req, res) => {
 });
 
 router.post('/login', authController.login);  // Xử lý đăng nhập
-router.get('/dashboard', (req, res) => {
+router.get('/WebBanGiay', (req, res) => {
     console.log("Route / is accessed");  // Thêm log để kiểm tra
     productController.getHomePage(req, res);  // Gọi controller để lấy trang chủ
   });
@@ -37,7 +37,7 @@ router.get('/', authController.isUser, (req, res) => {
 });
 
 // Trang User (Phân quyền cho user)
-router.get('/dashboard', authController.isUser, (req, res) => {
+router.get('/WebBanGiay', authController.isUser, (req, res) => {
     res.render('index');  // Render dashboard dành cho user
   });
 router.get('/', authController.isUser, productController.getHomePage);

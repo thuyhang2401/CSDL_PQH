@@ -13,6 +13,10 @@ exports.getCartByAccountId = async (req, res) => {
         // Lấy các sản phẩm từ giỏ hàng của người dùng
         const cartItems = await Cart.find({ accountId }).lean();
 
+        const userId = req.session.userId;
+        const cart = await Cart.where('accountId').equals(userId).exec();
+        const count = cart.length;
+
         const populatedCartItems = await Promise.all(
             cartItems.map(async (item) => {
                 const product = await Product.findOne({ _id: item.productId }).lean();
@@ -37,7 +41,7 @@ exports.getCartByAccountId = async (req, res) => {
         const total = validCartItems.reduce((sum, item) => sum + (item.price * item.purchaseQuantity), 0);
 
         // Trả về dữ liệu cho view
-        res.render('cart', { cartItems: validCartItems, total });
+        res.render('cart', { cartItems: validCartItems, total, count});
     } catch (error) {
         console.error('Error fetching cart:', error);
         res.status(500).json({ message: 'Không thể lấy thông tin giỏ hàng.' });

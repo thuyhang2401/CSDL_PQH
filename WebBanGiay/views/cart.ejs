@@ -50,10 +50,12 @@
 							<span class="text">Trả hàng - Hoàn tiền trong vòng 3 đến 5 ngày</span>
 						</div>
 
-						<div class="col-md pr-4 d-flex topper align-items-center">
-							<span class="text"><a href="#" style="font-weight: 700;">Đăng nhập</a></span>
-							<span class="text"><a href="#" style="font-weight: 700;">Đăng ký</a></span>
-						</div>
+						<% if (user.loggedIn==false) { %>
+							<div class="col-md pr-4 d-flex topper align-items-center">
+								<span class="text"><a href="/login" style="font-weight: 700;">Đăng nhập</a></span>
+								<span class="text"><a href="/register" style="font-weight: 700;">Đăng ký</a></span>
+							</div>
+							<% } %>
 					</div>
 				</div>
 			</div>
@@ -62,7 +64,7 @@
 
 	<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
 		<div class="container">
-			<a class="navbar-brand" href="index.html"><img src="/images/logo.png"
+			<a class="navbar-brand" href="/WebBanGiay"><img src="/images/logo.png"
 					style="width: 100px; height: 40px;"></a>
 			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#ftco-nav"
 				aria-controls="ftco-nav" aria-expanded="false" aria-label="Toggle navigation">
@@ -71,32 +73,40 @@
 
 			<div class="collapse navbar-collapse" id="ftco-nav">
 				<ul class="navbar-nav ml-auto">
-					<li class="nav-item active cta cta-colored"><a href="index.html" class="nav-link">Trang chủ</a></li>
+					<li class="nav-item active"><a href="/WebBanGiay" class="nav-link">Trang chủ</a></li>
 					<li class="nav-item active"><a href="/WebBanGiay/products" class="nav-link">Sản phẩm</a></li>
 					<li class="nav-item active"><a href="blog.html" class="nav-link">Blog giày</a></li>
 					<li class="nav-item active"><a href="" class="nav-link">Hỗ trợ khách hàng</a></li>
 					<li class="nav-item dropdown active">
-						<a class="nav-link dropdown-toggle" href="chinhsach_dichvu.html" id="dropdown04" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false">Chính sách - Dịch vụ</a>
+						<a class="nav-link dropdown-toggle" href="chinhsach_dichvu.html" id="dropdown04"
+							data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chính sách - Dịch vụ</a>
 						<div class="dropdown-menu dropdown-menu-l" aria-labelledby="dropdown04">
 							<a class="dropdown-item" href="">Chính sách đổi trả</a>
 							<a class="dropdown-item" href="">Chính sách bảo hành</a>
 							<a class="dropdown-item" href="">Chính sách thanh toán</a>
 							<a class="dropdown-item" href="">Chính sách vận chuyển</a>
 						</div>
-					<li class="nav-item"><a href="cart.html" class="nav-link active"><span
-								class="icon-shopping_cart"></span>[0]</a></li>
-					<li class="nav-item dropdown active">
-						<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false"><img class="img-avt"
-								src="/images/person_2.jpg"></a>
-						<div class="dropdown-menu" aria-labelledby="dropdown04">
-							<a class="dropdown-item" href="">Tài khoản</a>
-							<a class="dropdown-item" href="order.html">Đơn mua</a>
-							<a class="dropdown-item" href="index_admin.html">Đi đến trang quản lý</a>
-							<a class="dropdown-item" href="">Đăng xuất</a>
-						</div>
+					<li class="nav-item">
+						<a href="/WebBanGiay/cart" class="nav-link active">
+							<span class="icon-shopping_cart"></span>[<%=count%>]
+						</a>
 					</li>
+					<% if (user.loggedIn) { %>
+						<li class="nav-item dropdown active">
+							<a class="nav-link dropdown-toggle" href="#" id="dropdown04" data-toggle="dropdown"
+								aria-haspopup="true" aria-expanded="false"><img class="img-avt"
+									src="/images/person_2.jpg"></a>
+							</a>
+							<div class="dropdown-menu" aria-labelledby="dropdown04">
+								<a class="dropdown-item" href="">Tài khoản</a>
+								<a class="dropdown-item" href="order.html">Đơn mua</a>
+								<% if (user.role==='admin' ) { %>
+									<a class="dropdown-item" href="/admin">Đi đến trang quản lý</a>
+									<% } %>
+										<a class="dropdown-item" href="/logout">Đăng xuất</a>
+							</div>
+						</li>
+						<% } %>
 				</ul>
 			</div>
 		</div>
@@ -130,45 +140,48 @@
 							</tr>
 						</thead>
 						<tbody>
-							<% if (cartItems && cartItems.length > 0) { %>
-								<% cartItems.forEach(item => { %>
+							<% if (cartItems && cartItems.length> 0) { %>
+								<% cartItems.forEach(item=> { %>
 									<tr class="text-center" id="cart-item-<%= item.productId %>">
 										<td class="xoa">
-											<a href="/WebBanGiay/cart/remove/<%= item.productId %>" class="btn btn-danger btn-sm">X</a>
+											<a href="/WebBanGiay/cart/remove/<%= item.productId %>"
+												class="btn btn-danger btn-sm">X</a>
 										</td>
-	
+
 										<td class="anhsp">
-											<img src="<%= item.image %>" alt="<%= item.name %>" style="width: auto; height: auto;">
+											<img src="/images/<%= item.image %>" alt="/images/<%= item.name %>"
+												style="width: auto; height: auto;">
 										</td>
 										<td class="tensp">
-											<h5><%= item.name %></h5>
+											<h5>
+												<%= item.name %>
+											</h5>
 											<p class="text-muted">Mô tả: Giày thể thao...</p>
 										</td>
-										<td class="gia"><%= item.price.toLocaleString() %> đ</td>
+										<td class="gia">
+											<%= item.price.toLocaleString() %> đ
+										</td>
 										<td class="soluong">
-											<input 
-												type="number" 
-												class="form-control text-center" 
-												value="<%= item.purchaseQuantity %>" 
-												min="1"
-												data-product-id="<%= item.productId %>"
-												onchange="updateQuantity(this)" 
+											<input type="number" class="form-control text-center"
+												value="<%= item.purchaseQuantity %>" min="1"
+												data-product-id="<%= item.productId %>" onchange="updateQuantity(this)"
 												oninput="updateQuantity(this)">
 										</td>
 										<td class="tongtien" id="total-<%= item.productId %>">
 											<%= (item.price * item.purchaseQuantity).toLocaleString() %> đ
 										</td>
 									</tr>
-								<% }) %>
-							<% } else { %>
-								<tr>
-									<td colspan="6" class="text-center">Giỏ hàng của bạn hiện đang trống</td>
-								</tr>
-							<% } %>
+									<% }) %>
+										<% } else { %>
+											<tr>
+												<td colspan="6" class="text-center">Giỏ hàng của bạn hiện đang trống
+												</td>
+											</tr>
+											<% } %>
 						</tbody>
 					</table>
 				</div>
-	
+
 				<div class="ct-right">
 					<div class="sidebar-box">
 						<div class="cart-total mb-3">
@@ -176,7 +189,9 @@
 							<div class="cart-total">
 								<p class="d-flex justify-content-between">
 									<span>Tổng tiền:</span>
-									<span id="total-cart"><%= total.toLocaleString() %> đ</span>
+									<span id="total-cart">
+										<%= total.toLocaleString() %> đ
+									</span>
 								</p>
 								<p class="d-flex justify-content-between">
 									<span>Phí vận chuyển:</span>
@@ -189,7 +204,9 @@
 								<hr>
 								<p class="d-flex justify-content-between font-weight-bold">
 									<span>Thành tiền:</span>
-									<span id="total-payment"><%= total.toLocaleString() %> đ</span>
+									<span id="total-payment">
+										<%= total.toLocaleString() %> đ
+									</span>
 								</p>
 							</div>
 							<p class="text-center">
@@ -201,7 +218,7 @@
 			</div>
 		</div>
 	</section>
-	
+
 
 
 	<footer class="ftco-footer ftco-section">
@@ -312,89 +329,89 @@
 
 	<script>
 		// Hàm định dạng số tiền với dấu "." phân cách
-		function formatCurrency(amount) {
-			return amount.toLocaleString('vi-VN', {
-				style: 'currency',
-				currency: 'VND',
-				minimumFractionDigits: 0, // Hiển thị 2 chữ số thập phân
-			}).replace(/,/g, '.'); // Thay dấu "," thành "."
-		}
-	
+		// function formatCurrency(amount) {
+		// 	return amount.toLocaleString('vi-VN', {
+		// 		style: 'currency',
+		// 		currency: 'VND',
+		// 		minimumFractionDigits: 0, // Hiển thị 2 chữ số thập phân
+		// 	}).replace(/,/g, '.'); // Thay dấu "," thành "."
+		// }
+
 		// Hàm cập nhật số lượng và tính lại tổng tiền cho sản phẩm
 		function updateQuantity(input) {
 			const quantity = parseInt(input.value);
 			const productId = input.getAttribute('data-product-id');
-			
+
 			// Kiểm tra nếu giá trị số lượng hợp lệ
 			if (isNaN(quantity) || quantity < 1) {
 				input.value = 1; // Đảm bảo số lượng tối thiểu là 1
 				return;
 			}
-			
+
 			// Lấy giá của sản phẩm từ thẻ td
 			const price = parseFloat(document.querySelector(`#cart-item-${productId} .gia`).innerText.replace(' VNĐ', '').replace(/\./g, '').replace(',', '.'));
-	
+
 			// Tính lại tổng tiền cho sản phẩm này
 			const newTotal = price * quantity;
-	
+
 			// Cập nhật tổng tiền của sản phẩm trong giỏ hàng
 			document.querySelector(`#total-${productId}`).innerText = formatCurrency(newTotal);
-	
+
 			// Cập nhật tổng tiền giỏ hàng
 			updateCartTotal();
 		}
-	
+
 		// Hàm cập nhật tổng tiền giỏ hàng
 		function updateCartTotal() {
 			let total = 0;
-	
+
 			// Duyệt qua tất cả các sản phẩm trong giỏ hàng và cộng tổng tiền
 			const totalElements = document.querySelectorAll('.tongtien');
 			totalElements.forEach(element => {
 				total += parseFloat(element.innerText.replace(' VNĐ', '').replace(/\./g, '').replace(',', '.'));
 			});
-	
+
 			// Cập nhật tổng tiền giỏ hàng và tổng tiền thanh toán
 			document.querySelector('#total-cart').innerText = formatCurrency(total);
 			document.querySelector('#total-payment').innerText = formatCurrency(total);
 		}
-	
+
 		// Hàm tăng số lượng khi click vào nút "+"
 		$(document).ready(function () {
 			$('.quantity-right-plus').click(function (e) {
 				e.preventDefault();
-	
+
 				// Lấy input số lượng
 				var input = $(this).closest('.quantity-container').find('input');
 				var quantity = parseInt(input.val());
-	
+
 				// Tăng số lượng và cập nhật lại
 				input.val(quantity + 1);
-	
+
 				// Gọi hàm updateQuantity để tính lại tổng tiền
 				updateQuantity(input[0]);
 			});
-	
+
 			// Hàm giảm số lượng khi click vào nút "-"
 			$('.quantity-left-minus').click(function (e) {
 				e.preventDefault();
-	
+
 				// Lấy input số lượng
 				var input = $(this).closest('.quantity-container').find('input');
 				var quantity = parseInt(input.val());
-	
+
 				// Giảm số lượng nếu lớn hơn 1
 				if (quantity > 1) {
 					input.val(quantity - 1);
 				}
-	
+
 				// Gọi hàm updateQuantity để tính lại tổng tiền
 				updateQuantity(input[0]);
 			});
 		});
 	</script>
-	
-	
+
+
 
 </body>
 
